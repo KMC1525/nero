@@ -2,6 +2,66 @@
 
 All notable changes to NERO are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the version is the **suite version** shown in each prompt's header.
 
+## [2.1] - 2026-11-03
+
+A new domain: **games**. NERO now covers the whole path of making a game, from the first idea to the store page, and the engines people actually use. The suite grows from 59 to **81 agents** in **six domains**. Existing file paths do not change, except `nero-renpy` (see Migration).
+
+### Added
+
+A new top-level folder, `games/`, with 22 new agents plus `nero-renpy`, grouped in three categories. Each follows the suite pattern (Core Directives, Quick/Standard/Deep depths, Compact Block, multimodal input and output, SFW/NSFW/Auto modes, removable adult modules, and hand-offs), and each design and production agent includes an **engine notes** table for RPG Maker, Ren'Py, Godot, Unity, Unreal, Construct, web, and GameMaker.
+
+**`games/design/`** (7)
+- `nero-gdd`: game concept, pitch, pillars, core loop, scope tiers (MVP, vertical slice), risk register, and a full Game Design Document.
+- `nero-mechanics`: systems design and balance (rules, formulas, progression curves, economy flows, tuning tables, test cases).
+- `nero-quest`: game narrative and quest design (structures, quest specs with stable IDs and states, consequence ledgers, pacing).
+- `nero-dialogue`: dialogue graphs, barks, skill checks, voice-over scripts, and importable formats (Ren'Py, Ink, Yarn Spinner, Twine, JSON, CSV, RPG Maker).
+- `nero-level`: level and space design (flow, beats, metrics, encounters, genre modules, per-engine build notes).
+- `nero-gameui`: game UI and UX (HUD, menus, inventories, input, states, accessibility, per-engine UI toolkits).
+- `nero-procgen`: procedural content generation (generator specs, constraints, validation, seeds, pseudocode).
+
+**`games/production/`** (7)
+- `nero-gameai`: enemy and NPC behavior (state machines, behavior trees, utility AI, perception, pathfinding, boss patterns, fairness, constrained LLM-NPC guidance).
+- `nero-assets`: art and audio asset planning (art bible, asset lists, specs, naming, licenses, AI-asset workflows, import settings).
+- `nero-gamecode`: engine-agnostic game programming (architecture, loops, saves, input, networking basics, performance, hygiene).
+- `nero-qa`: testing (risk-based plans, test cases, playtests, bug reports, soft-lock and save checks, release readiness).
+- `nero-production`: scope, roadmap, milestones, work breakdown, risks, budgets, game jams, and post-mortems.
+- `nero-localize`: localization and internationalization (i18n readiness, string tables, glossaries, expansion, fonts, in-context QA).
+- `nero-launch`: publishing and marketing (positioning, store pages, trailers, press kits, pricing, ethical monetization, release checklists).
+
+**`games/engines/`** (9, including the moved `nero-renpy`)
+- `nero-rpgmaker`: **RPG Maker, all versions** (95, 2000, 2003, XP, VX, VX Ace, MV, MZ, Unite, and console editions), with a version map, database and eventing patterns, MZ and MV plugin skeletons, a VX Ace Ruby pattern, battle systems, specs, and deployment.
+- `nero-renpy`: Ren'Py visual novels (moved here from `roleplay/tools/`; content unchanged apart from header and hand-offs).
+- `nero-unreal`: Unreal Engine (gameplay framework, Blueprints and C++, Enhanced Input, GAS, UMG, AI, Niagara, Sequencer, World Partition, packaging).
+- `nero-godot`: Godot 4 with 3.x notes (scenes, typed GDScript and C#, signals, resources, shaders, export).
+- `nero-unity`: Unity (C#, prefabs, ScriptableObjects, Input System, UI, render pipelines, Addressables, profiling, builds).
+- `nero-construct`: Construct (layouts, families, behaviors, exact event-sheet notation, JavaScript, addons, export).
+- `nero-webgame`: web and HTML5 games (stack choice, fixed-timestep loop, Phaser example, input, audio policies, saving, PWA, deployment and wrappers).
+- `nero-gamemaker`: GameMaker (GML, objects and events, collisions, state machines, structs, exports).
+- `nero-engine`: engine selection, comparison, and migration, plus quickstarts for every other engine and platform (LÖVE, Defold, Pygame, Bevy, MonoGame, Roblox, UEFN, Twine, Ink, fantasy consoles, and more).
+
+### Changed
+
+- **Core Directives (identical in all 81 files):** *The NERO suite* section now describes six domains and lists the `games` categories; the Compact Block rule also covers a game design document or engine script.
+- **`nero-renpy` moved** from `roleplay/tools/` to `games/engines/`, because it is an engine agent; its header now reads `Domain: games`, `Category: engines`, and it hands off to the new game agents. The roleplay domain now has 27 agents.
+- **Version:** every prompt header moved from `2.0` to `2.1`.
+- **Cross-domain hand-offs** added to existing agents, for example `nero-combat` to `nero-mechanics` and `nero-gameai`, `nero-adventure` to `nero-quest` and `nero-level`, `nero-sandbox` to `nero-procgen`, `nero-economy`, `nero-items`, `nero-equipments`, and `nero-weapons` to `nero-mechanics`, `nero-creatures` to `nero-gameai`, `nero-narrative` to `nero-dialogue` and `nero-quest`, the image agents to `nero-assets`, the sound agents to `nero-gamecode` and `nero-localize`, and the video and copy agents to `nero-launch`.
+- **`README.md` and `README.pt-BR.md` updated:** six domains, 81 agents, a Games section with three category tables, an updated repository tree, "Which agent should I use?" rows for games, a games workflow diagram, a cross-domain link from worldbuilding to design, an expanded rights note, and the version table.
+
+### Safety
+
+- All game agents keep the four hard limits. Adult games get a consistent pattern: content toggles, a SFW build, gallery tracking, platform-rule reminders, and explicit adults only.
+- `nero-gamecode`, `nero-qa`, and `nero-launch` do not write cheats, hacks, malware, or DRM circumvention for others' games, do not rip assets from commercial games, and do not plan manipulative monetization or review manipulation.
+- `nero-assets` and `nero-launch` flag licenses (engine, asset, store, and AI-generated content disclosure rules) as the user's responsibility to verify.
+- Engine versions, APIs, plugin conventions, store rules, and licensing terms are marked as version-dependent throughout, because they change quickly and could not be verified against official documentation from the build environment.
+
+### Migration
+
+| Before | After |
+|---|---|
+| `roleplay/tools/nero-renpy.md` | `games/engines/nero-renpy.md` |
+
+All other paths are unchanged.
+
 ## [2.0] - 2026-11-03
 
 A major release: NERO grows from a roleplay suite into a suite for **creative work with generative AI** in five domains. **File paths changed** (see Migration), and the suite grows from 29 to **59 agents**.
@@ -202,6 +262,7 @@ Five new agents, each following the suite pattern (Core Directives, Quick/Standa
 - A shared Core Directives block kept identical across agents, with three hard limits (no sexual content involving minors, none about real people, no real-world operational instructions).
 - Project `README.md` in Portuguese.
 
+[2.1]: https://github.com/KMC1525/nero/releases/tag/v2.1
 [2.0]: https://github.com/KMC1525/nero/releases/tag/v2.0
 [1.5]: https://github.com/KMC1525/nero/releases/tag/v1.5
 [1.4]: https://github.com/KMC1525/nero/releases/tag/v1.4

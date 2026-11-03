@@ -1,8 +1,8 @@
 # NERO
 
-> Uma suíte de **system prompts de agentes de IA** para **trabalho criativo com IA generativa**: **roleplay**, **escrita**, **imagem**, **vídeo** e **som**.
+> Uma suíte de **system prompts de agentes de IA** para **trabalho criativo com IA generativa**: **roleplay**, **escrita**, **imagem**, **vídeo**, **som** e **games**.
 
-**Versão 2.0** · [Licença MIT](LICENSE) · [Changelog](CHANGELOG.md) · [English](README.md)
+**Versão 2.1** · [Licença MIT](LICENSE) · [Changelog](CHANGELOG.md) · [English](README.md)
 
 ---
 
@@ -25,17 +25,18 @@
 
 ## O que é o NERO
 
-O NERO é uma coleção de **59 system prompts especializados**, escritos em Markdown, para **trabalho criativo com IA generativa**. Cada arquivo é um **agente independente**: você o cola como system prompt em um modelo de IA e ele passa a atuar como especialista em um ofício: um personagem, um mundo, uma aventura, um romance, uma fan fiction, um texto publicitário, um logo, um roteiro de cinema, um storyboard, uma música ou uma mixagem.
+O NERO é uma coleção de **81 system prompts especializados**, escritos em Markdown, para **trabalho criativo com IA generativa**. Cada arquivo é um **agente independente**: você o cola como system prompt em um modelo de IA e ele passa a atuar como especialista em um ofício: um personagem, um mundo, uma aventura, um romance, uma fan fiction, um texto publicitário, um logo, um roteiro de cinema, um storyboard, uma música ou uma mixagem.
 
-O NERO nasceu como um conjunto de agentes de **roleplay**. A partir da versão 2.0 ele cobre cinco domínios:
+O NERO nasceu como um conjunto de agentes de **roleplay**. A partir da versão 2.0 ele foi além do roleplay, e hoje cobre seis domínios:
 
 | Domínio | O que cobre | Agentes |
 |---|---|---|
-| **Roleplay** | Personagens, mundos, aventuras, itens e as ferramentas que os conectam às plataformas de roleplay (SillyTavern, JanitorAI, Front Porch AI, Ren'Py). | 28 |
+| **Roleplay** | Personagens, mundos, aventuras, itens e as ferramentas que os conectam às plataformas de roleplay (SillyTavern, JanitorAI e Front Porch AI). | 27 |
 | **Escrita** | Escrita criativa e profissional: ficção original, fan fiction, erotica, poesia, copy, documentos de negócios e técnicos, artigos e edição. | 8 |
 | **Imagem** | Imagem artística e de design: direção de arte, concept design, fotografia, quadrinhos, design gráfico, prompts para qualquer modelo, workflows de ComfyUI e retoque. | 8 |
 | **Vídeo** | Imagem em movimento: roteiros, séries, publicidade, storyboards, cinematografia, animação, edição e geração de vídeo por IA. | 8 |
 | **Som** | Áudio: música, letras, trilha, design de som, mixagem e masterização, direção de voz, podcasts e drama em áudio. | 7 |
+| **Games** | Criação de jogos do conceito ao lançamento: design, sistemas, narrativa, fases, UI, IA, assets, código, QA, produção, localização, publicação e engines (RPG Maker, Ren'Py, Unreal, Godot, Unity, Construct, web, GameMaker e mais). | 23 |
 
 Não é um aplicativo nem uma biblioteca. É **conteúdo**: prompts prontos para usar em qualquer plataforma ou modelo que aceite um system prompt (aplicativos de chat, frontends de roleplay, APIs, GPTs e projetos personalizados).
 
@@ -57,12 +58,15 @@ O que os agentes produzem foi pensado para ser **usado depois**: cartões de per
 | Planejar planos ou fazer clipes de vídeo por IA | [`nero-storyboard`](video/craft/nero-storyboard.md), [`nero-vidprompt`](video/tools/nero-vidprompt.md) |
 | Escrever uma música | [`nero-lyrics`](sound/music/nero-lyrics.md), [`nero-music`](sound/music/nero-music.md) |
 | Projetar som ou planejar um podcast | [`nero-sfx`](sound/production/nero-sfx.md), [`nero-podcast`](sound/production/nero-podcast.md) |
+| Projetar um jogo ou escrever um documento de design | [`nero-gdd`](games/design/nero-gdd.md), [`nero-mechanics`](games/design/nero-mechanics.md) |
+| Fazer um jogo em RPG Maker, Ren'Py, Godot, Unity, Unreal, Construct, GameMaker ou na web | [`nero-rpgmaker`](games/engines/nero-rpgmaker.md), [`nero-renpy`](games/engines/nero-renpy.md), [`nero-godot`](games/engines/nero-godot.md), [`nero-unity`](games/engines/nero-unity.md), [`nero-unreal`](games/engines/nero-unreal.md), [`nero-construct`](games/engines/nero-construct.md), [`nero-gamemaker`](games/engines/nero-gamemaker.md), [`nero-webgame`](games/engines/nero-webgame.md) |
+| Escolher uma engine, ou publicar e divulgar um jogo | [`nero-engine`](games/engines/nero-engine.md), [`nero-launch`](games/production/nero-launch.md) |
 
 ---
 
 ## Regras do projeto
 
-Estas cinco regras valem para **todos** os prompts do repositório, nos cinco domínios:
+Estas cinco regras valem para **todos** os prompts do repositório, nos seis domínios:
 
 | # | Regra | Como o NERO cumpre |
 |---|---|---|
@@ -117,8 +121,7 @@ nero/
 │       ├── nero-lorebook.md
 │       ├── nero-st.md
 │       ├── nero-card.md
-│       ├── nero-context.md
-│       └── nero-renpy.md
+│       └── nero-context.md
 ├── writing/
 │   ├── fiction/
 │   │   ├── nero-story.md
@@ -155,16 +158,43 @@ nero/
 │   │   └── nero-cut.md
 │   └── tools/
 │       └── nero-vidprompt.md
-└── sound/
-    ├── music/
-    │   ├── nero-music.md
-    │   ├── nero-lyrics.md
-    │   └── nero-score.md
-    └── production/
-        ├── nero-sfx.md
-        ├── nero-mix.md
-        ├── nero-voice.md
-        └── nero-podcast.md
+├── sound/
+│   ├── music/
+│   │   ├── nero-music.md
+│   │   ├── nero-lyrics.md
+│   │   └── nero-score.md
+│   └── production/
+│       ├── nero-sfx.md
+│       ├── nero-mix.md
+│       ├── nero-voice.md
+│       └── nero-podcast.md
+└── games/
+    ├── design/
+    │   ├── nero-gdd.md
+    │   ├── nero-mechanics.md
+    │   ├── nero-quest.md
+    │   ├── nero-dialogue.md
+    │   ├── nero-level.md
+    │   ├── nero-gameui.md
+    │   └── nero-procgen.md
+    ├── production/
+    │   ├── nero-gameai.md
+    │   ├── nero-assets.md
+    │   ├── nero-gamecode.md
+    │   ├── nero-qa.md
+    │   ├── nero-production.md
+    │   ├── nero-localize.md
+    │   └── nero-launch.md
+    └── engines/
+        ├── nero-rpgmaker.md
+        ├── nero-renpy.md
+        ├── nero-unreal.md
+        ├── nero-godot.md
+        ├── nero-unity.md
+        ├── nero-construct.md
+        ├── nero-webgame.md
+        ├── nero-gamemaker.md
+        └── nero-engine.md
 ```
 
 ---
@@ -175,7 +205,7 @@ Todos os agentes seguem a mesma estrutura (veja [Convenções compartilhadas](#c
 
 ### Roleplay
 
-_Personagens, mundos, aventuras, itens e as ferramentas que os conectam às plataformas de roleplay (SillyTavern, JanitorAI, Front Porch AI, Ren'Py)._
+_Personagens, mundos, aventuras, itens e as ferramentas que os conectam às plataformas de roleplay (SillyTavern, JanitorAI e Front Porch AI)._
 
 #### `roleplay/characters/`
 
@@ -233,7 +263,6 @@ _Personagens, mundos, aventuras, itens e as ferramentas que os conectam às plat
 | [`nero-st`](roleplay/tools/nero-st.md) | O engenheiro do SillyTavern: configurações de World Info (keys, regex, depth, probability, order, constant, recursão), Regex Scripts, Quick Replies, Author's Note, campos de Character Card V2/V3, presets de geração e estratégia de gerenciamento de contexto. Complementa o `nero-lorebook`, que escreve o conteúdo das entradas. |
 | [`nero-card`](roleplay/tools/nero-card.md) | Converte e otimiza cartões de personagem entre **SillyTavern, JanitorAI, Front Porch AI, Agnai, RisuAI** e derivados, a partir de qualquer fonte (ficha NERO, texto, imagem, cartão existente). Orçamento de tokens por campo, melhores práticas de cada plataforma, suporte a V2 e V3 e uma passada de lint. |
 | [`nero-context`](roleplay/tools/nero-context.md) | Compressão e priorização de contexto: transforma qualquer saída NERO em versões de alta densidade para janelas de **4k, 8k, 16k e 32k+**, com camadas de prioridade, Loss Report, checagem de consistência e template de resumo contínuo. |
-| [`nero-renpy`](roleplay/tools/nero-renpy.md) | Adapta personagens, cenários, relacionamentos e arcos para projetos **Ren'Py**: labels, menus de escolha, flags e variáveis, transições, declarações de CG, mapa de rotas, manifesto de assets e cenas maduras com trava de idade e alternativa SFW. |
 
 ### Escrita
 
@@ -336,6 +365,48 @@ _Áudio: música, letras, trilha, design de som, mixagem e masterização, dire�
 | [`nero-mix`](sound/production/nero-mix.md) | **Novo na 2.0.** Mixagem, masterização e pós de áudio: diagnóstico por sintoma, cadeias de sinal, limpeza de diálogo, loudness e entrega. |
 | [`nero-voice`](sound/production/nero-voice.md) | **Novo na 2.0.** Direção de voz e atuação: perfis de voz, briefings de elenco, narração, TTS e design de voz e pronúncia, com regras estritas contra clonagem. |
 | [`nero-podcast`](sound/production/nero-podcast.md) | **Novo na 2.0.** Podcasts, drama em áudio, rádio e audiolivros: bíblias de programa, estruturas de episódio, roteiros com marcações de som, entrevistas e show notes. |
+
+### Games
+
+_Criação de jogos do conceito ao lançamento: design, sistemas, narrativa, fases, UI, IA, assets, código, QA, produção, localização, publicação e engines._
+
+#### `games/design/`
+
+| Agente | O que faz |
+|---|---|
+| [`nero-gdd`](games/design/nero-gdd.md) | **Novo na 2.1.** Conceito de jogo, pitch, pilares de design, core loop, camadas de escopo (MVP, vertical slice), registro de riscos e um Game Design Document completo, com notas de adequação por engine. |
+| [`nero-mechanics`](games/design/nero-mechanics.md) | **Novo na 2.1.** Design de sistemas e balanceamento: regras, fórmulas, curvas de progressão, fluxos de economia, crafting, dificuldade, tabelas de ajuste e casos de teste, com notas de implementação por engine. |
+| [`nero-quest`](games/design/nero-quest.md) | **Novo na 2.1.** Design de narrativa e quests para jogos: estruturas, especificações de quest com IDs estáveis e estados, registros de escolha e consequência, entrega de lore e ritmo. |
+| [`nero-dialogue`](games/design/nero-dialogue.md) | **Novo na 2.1.** Diálogo em jogos: grafos de conversa, barks, testes de habilidade, roteiros de dublagem e formatos importáveis (Ren'Py, Ink, Yarn Spinner, Twine, JSON, CSV, RPG Maker), prontos para localização. |
+| [`nero-level`](games/design/nero-level.md) | **Novo na 2.1.** Design de fases e espaços: fluxo, batidas, métricas, encontros, segredos, módulos por gênero e notas de construção para as ferramentas de mapa de cada engine. |
+| [`nero-gameui`](games/design/nero-gameui.md) | **Novo na 2.1.** UI e UX de jogos: HUDs, menus, inventários, entrada por mouse, controle e toque, estados e feedback, acessibilidade e toolkits de UI de cada engine. |
+| [`nero-procgen`](games/design/nero-procgen.md) | **Novo na 2.1.** Geração procedural de conteúdo: especificações de geradores de masmorras, mundos, loot, quests e nomes, com restrições, validação, seeds e pseudocódigo. |
+
+#### `games/production/`
+
+| Agente | O que faz |
+|---|---|
+| [`nero-gameai`](games/production/nero-gameai.md) | **Novo na 2.1.** Comportamento de inimigos e NPCs: máquinas de estado, behavior trees, utility AI, percepção, pathfinding, padrões de chefe, ajuste de justiça e orientação para NPCs com LLM com limites. |
+| [`nero-assets`](games/production/nero-assets.md) | **Novo na 2.1.** Planejamento de assets de arte e áudio: bíblia de arte, listas de assets, especificações e nomenclatura, sprite sheets e tilesets, controle de licenças, fluxos com assets de IA e configurações de importação por engine. |
+| [`nero-gamecode`](games/production/nero-gamecode.md) | **Novo na 2.1.** Programação de jogos independente de engine: arquitetura e padrões, game loops, máquinas de estado, saves, entrada, noções de rede, desempenho e higiene de projeto. |
+| [`nero-qa`](games/production/nero-qa.md) | **Novo na 2.1.** Testes de jogos: planos baseados em risco, casos de teste, protocolos de playtest, modelos de relatório de bug, checagens de soft-lock e save, compatibilidade e prontidão de lançamento. |
+| [`nero-production`](games/production/nero-production.md) | **Novo na 2.1.** Escopo, roadmap, marcos, decomposição de trabalho, planos de equipe, registros de risco, orçamentos, planos de game jam e post-mortems. |
+| [`nero-localize`](games/production/nero-localize.md) | **Novo na 2.1.** Localização e internacionalização: prontidão para i18n, tabelas de strings com contexto, glossários, expansão de texto, fontes, QA em contexto e ferramentas por engine. |
+| [`nero-launch`](games/production/nero-launch.md) | **Novo na 2.1.** Publicação e marketing: posicionamento, páginas de loja, trailers e press kits, preço e monetização ética, checklists de lançamento e planos de pós-lançamento. |
+
+#### `games/engines/`
+
+| Agente | O que faz |
+|---|---|
+| [`nero-rpgmaker`](games/engines/nero-rpgmaker.md) | **Novo na 2.1.** **RPG Maker, todas as versões** (95, 2000, 2003, XP, VX, VX Ace, MV, MZ, Unite e edições de console): banco de dados, eventos, plugins de MZ e MV, scripts em Ruby, sistemas de batalha, especificações e publicação. |
+| [`nero-renpy`](games/engines/nero-renpy.md) | Adapta personagens, cenários, relacionamentos e arcos para projetos **Ren'Py**: labels, menus de escolha, flags e variáveis, transições, declarações de CG, mapa de rotas, manifesto de assets e cenas maduras com trava de idade e alternativa SFW. |
+| [`nero-unreal`](games/engines/nero-unreal.md) | **Novo na 2.1.** Unreal Engine: gameplay framework, Blueprints e C++, Enhanced Input, Gameplay Ability System, UMG, IA, Niagara, Sequencer, World Partition, convenções de nomes e empacotamento. |
+| [`nero-godot`](games/engines/nero-godot.md) | **Novo na 2.1.** Godot 4 (com notas da 3.x): cenas e nós, GDScript tipado e C#, sinais, resources, 2D e 3D, shaders, exportação e armadilhas comuns. |
+| [`nero-unity`](games/engines/nero-unity.md) | **Novo na 2.1.** Unity: scripts em C#, prefabs, ScriptableObjects, Input System, UI Toolkit e uGUI, pipelines de renderização, Addressables, profiling e builds. |
+| [`nero-construct`](games/engines/nero-construct.md) | **Novo na 2.1.** Construct: layouts, tipos de objeto, famílias, behaviors, notação exata de event sheets, scripts em JavaScript, addons, desempenho e exportação. |
+| [`nero-webgame`](games/engines/nero-webgame.md) | **Novo na 2.1.** Jogos web e HTML5: escolha de stack (Canvas puro, Phaser, PixiJS, Three.js, Babylon.js e outros), loops com timestep fixo, entrada, políticas de áudio, saves, PWA e publicação (itch.io e wrappers). |
+| [`nero-gamemaker`](games/engines/nero-gamemaker.md) | **Novo na 2.1.** GameMaker: GML, objetos e eventos, rooms e layers, colisões, máquinas de estado, structs, sequences, shaders e exportações. |
+| [`nero-engine`](games/engines/nero-engine.md) | **Novo na 2.1.** Escolha, comparação e migração de engines, mais quickstarts para todas as outras engines e plataformas (LÖVE, Defold, Pygame, Bevy, MonoGame, Roblox, UEFN, Twine, Ink, fantasy consoles e mais). |
 
 ---
 
@@ -463,6 +534,9 @@ flowchart LR
     CH[nero-character] --> CN[nero-concept]
     CN --> PM[nero-prompt]
     PM --> CF[nero-comfy]
+    WB --> GDD[nero-gdd]
+    GDD --> AST[nero-assets]
+    CN --> AST
 ```
 
 ### Roleplay
@@ -584,6 +658,36 @@ flowchart LR
     PD[nero-podcast] --> VO
 ```
 
+### Games
+
+```mermaid
+flowchart LR
+    PR[nero-production] --> GD[nero-gdd]
+    GD --> ME[nero-mechanics]
+    GD --> QU[nero-quest]
+    QU --> DI[nero-dialogue]
+    GD --> LV[nero-level]
+    LV --> PG[nero-procgen]
+    GD --> GU[nero-gameui]
+    ME --> GA[nero-gameai]
+    GD --> AS[nero-assets]
+    GD --> EN[nero-engine]
+    EN --> RM[nero-rpgmaker]
+    EN --> RP[nero-renpy]
+    EN --> GO[nero-godot]
+    EN --> UN[nero-unity]
+    EN --> UR[nero-unreal]
+    EN --> CO[nero-construct]
+    EN --> WG[nero-webgame]
+    EN --> GM[nero-gamemaker]
+    RM --> GC[nero-gamecode]
+    GO --> GC
+    UN --> GC
+    GC --> QA[nero-qa]
+    QA --> LO[nero-localize]
+    LO --> LA[nero-launch]
+```
+
 ---
 
 ## Convenções compartilhadas
@@ -636,6 +740,8 @@ Existem **limites rígidos** que valem em qualquer modo, em qualquer domínio e 
 
 Os agentes **criam, não copiam**: sem reprodução literal de texto, letras, roteiros ou designs protegidos, e sem imitar artistas, autores ou intérpretes vivos pelo nome. Trabalho de fã e derivado transforma a fonte. Os agentes profissionais nunca inventam fatos, números, citações ou referências, e marcam lacunas como marcadores. Os direitos sobre o que você publica continuam sendo responsabilidade sua.
 
+Os agentes de jogos também nunca escrevem cheats, hacks, malware ou burla de DRM para jogos de terceiros, nunca extraem assets de jogos comerciais e nunca manipulam jogadores com monetização enganosa. As licenças de engines, assets e lojas, e as regras de conteúdo e idade de cada plataforma, mudam com o tempo e cabe a você verificá-las.
+
 Ao usar estes prompts, você é responsável por respeitar as regras da plataforma e do modelo que estiver usando.
 
 ---
@@ -650,7 +756,7 @@ Ao editar um prompt existente ou criar um novo, mantenha as convenções:
 - Mantenha o conteúdo adulto em **módulos opcionais e removíveis**.
 - Se criar um agente novo, adicione-o à tabela da seção *The NERO suite* dentro do `Core Directives` de **todos** os agentes, aos dois READMEs e ao changelog, e defina a `Version` dele como a versão da suíte.
 
-O bloco `Core Directives` é **idêntico** nos 59 arquivos de propósito: cada prompt precisa funcionar sozinho, sem depender dos outros. Por isso, qualquer mudança nele deve ser replicada em todos. Para conferir se continuam idênticos, o comando abaixo deve imprimir **uma única linha** (contagem `59` e um só hash):
+O bloco `Core Directives` é **idêntico** nos 81 arquivos de propósito: cada prompt precisa funcionar sozinho, sem depender dos outros. Por isso, qualquer mudança nele deve ser replicada em todos. Para conferir se continuam idênticos, o comando abaixo deve imprimir **uma única linha** (contagem `81` e um só hash):
 
 ```bash
 for f in */*/nero-*.md; do sed -n '/^## 2\. Core Directives/,/^## 3\./p' "$f" | sed '$d' | md5sum; done | sort | uniq -c
@@ -664,6 +770,7 @@ A `Version` no cabeçalho de cada prompt é a **versão da suíte**. Toda mudan�
 
 | Versão | Destaques |
 |---|---|
+| **2.1** | Novo domínio **games** com 22 novos agentes, do design ao lançamento e para as principais engines (RPG Maker todas as versões, Godot, Unity, Unreal, Construct, web, GameMaker e qualquer outra); `nero-renpy` movido para `games/engines/`. 81 agentes no total. |
 | **2.0** | **Versão maior.** O NERO deixa de ser só roleplay e passa a cobrir cinco domínios (roleplay, escrita, imagem, vídeo, som). Pastas reorganizadas em `domínio/categoria/`; 30 novos agentes; 59 no total; `nero-comfy` movido para `image/`; os Core Directives ampliam o alcance do limite sobre pessoas reais (qualquer meio) e ganham uma regra contra engano. |
 | **1.5** | Cinco novos agentes de ferramentas em `tools/`: `nero-st`, `nero-card`, `nero-comfy`, `nero-context` e `nero-renpy`. 29 agentes no total. |
 | **1.4** | Cinco novos agentes: `nero-history`, `nero-romance`, `nero-villain`, `nero-scenario` e `nero-sandbox`. 24 agentes no total. |
