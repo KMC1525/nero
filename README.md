@@ -2,7 +2,7 @@
 
 > A set of **AI agent system prompts** for developing **characters**, **worlds**, and **adventures** for roleplay with generative AI.
 
-**Version 1.4** · [MIT License](LICENSE) · [Changelog](CHANGELOG.md) · [Português (Brasil)](README.pt-BR.md)
+**Version 1.5** · [MIT License](LICENSE) · [Changelog](CHANGELOG.md) · [Português (Brasil)](README.pt-BR.md)
 
 ---
 
@@ -25,7 +25,7 @@
 
 ## What is NERO
 
-NERO is a collection of **24 specialized system prompts**, written in Markdown. Each file is an **independent agent**: you paste it as the system prompt of an AI model, and it acts as a specialist in creating one kind of roleplay material: a character, a cast, a world, a city, a room, an economy, an adventure, a fight, or a legendary sword.
+NERO is a collection of **29 specialized system prompts**, written in Markdown. Each file is an **independent agent**: you paste it as the system prompt of an AI model, and it acts as a specialist in creating one kind of roleplay material: a character, a cast, a world, a city, a room, an economy, an adventure, a fight, or a legendary sword.
 
 It is not an application or a library. It is **content**: prompts ready to use on any platform or model that accepts a system prompt (chat apps, roleplay frontends, APIs, custom GPTs, and projects).
 
@@ -84,7 +84,12 @@ nero/
 │   ├── nero-equipments.md
 │   └── nero-weapons.md
 └── tools/
-    └── nero-lorebook.md
+    ├── nero-lorebook.md
+    ├── nero-st.md
+    ├── nero-card.md
+    ├── nero-comfy.md
+    ├── nero-context.md
+    └── nero-renpy.md
 ```
 
 ---
@@ -144,6 +149,11 @@ nero/
 | Agent | What it does |
 |---|---|
 | [`nero-lorebook`](tools/nero-lorebook.md) | **New in 1.3.** Turns any material, including output from the other agents, into optimized lorebook entries for SillyTavern, Agnai, and similar frontends: keywords and secondary keys, always-on versus triggered entries, order, recursion notes, token budgets, **Compact and Full** versions, and optional JSON export. |
+| [`nero-st`](tools/nero-st.md) | **New in 1.5.** The SillyTavern engineer: World Info settings (keys, regex, depth, probability, order, constant, recursion), Regex Scripts, Quick Replies, Author's Note, Character Card V2/V3 fields, generation presets, and context-management strategy. Complements `nero-lorebook`, which writes the entry content. |
+| [`nero-card`](tools/nero-card.md) | **New in 1.5.** Converts and optimizes character cards across **SillyTavern, JanitorAI, Front Porch AI, Agnai, RisuAI**, and derivatives, from any source (NERO sheet, text, image, existing card). Per-field token budgets, platform best practices, V2 and V3 support, and a lint pass. |
+| [`nero-comfy`](tools/nero-comfy.md) | **New in 1.5.** ComfyUI and Stable Diffusion pipelines: prompt packages by model family, a reusable **Character Lock** for consistency, workflow structure (LoRAs by role, ControlNet, IP-Adapter, upscale, detailer), and variation batches, for SFW and NSFW. Built-in safety rules: adults only, no real-person likeness in sexual content. |
+| [`nero-context`](tools/nero-context.md) | **New in 1.5.** Context compression and prioritization: turns any NERO output into high-density versions for **4k, 8k, 16k, and 32k+** windows, with priority tiers, a Loss Report, a consistency check, and a rolling-summary template. |
+| [`nero-renpy`](tools/nero-renpy.md) | **New in 1.5.** Adapts characters, scenarios, relationships, and arcs into **Ren'Py** projects: labels, choice menus, flags and variables, transitions, CG declarations, a route map, an asset manifest, and age-gated mature scenes with SFW fallbacks. |
 
 ---
 
@@ -296,6 +306,18 @@ flowchart LR
     F --> SB
     CR --> SB
     ANY[any NERO output] -. optimize .-> LB[nero-lorebook]
+    J --> CD[nero-card]
+    C --> CD
+    LB --> ST[nero-st]
+    CD --> ST
+    C --> CF[nero-comfy]
+    J --> CF
+    SC --> CF
+    LB --> CT[nero-context]
+    CD --> CT
+    RO --> RP[nero-renpy]
+    SC --> RP
+    CF -.-> RP
 ```
 
 Each agent knows the others and points to the next step when a request goes beyond its scope. Assets link to each other through **cross-references** in the form `[[Type: Name]]`, for example `[[Place: Saltmarsh Quay]]`, `[[Character: Mira Voss]]`, or `[[Item: Ashen Lantern]]`.
@@ -361,7 +383,7 @@ When editing an existing prompt or creating a new one, keep the conventions:
 - Keep adult content in **optional, removable modules**.
 - If you create a new agent, add it to the table in *The NERO suite* inside the `Core Directives` of **every** agent, and to this README and the changelog.
 
-The `Core Directives` block is **identical** in all 24 files on purpose: each prompt has to work on its own, without depending on the others. So any change to it must be replicated everywhere. To check that they are still identical, the command below must print **a single line** (a count of `24` and one hash):
+The `Core Directives` block is **identical** in all 29 files on purpose: each prompt has to work on its own, without depending on the others. So any change to it must be replicated everywhere. To check that they are still identical, the command below must print **a single line** (a count of `29` and one hash):
 
 ```bash
 for f in */nero-*.md; do sed -n '/^## 2\. Core Directives/,/^## 3\./p' "$f" | sed '$d' | md5sum; done | sort | uniq -c
@@ -375,6 +397,7 @@ The `Version` in each prompt's header is the **suite version**. Every change tha
 
 | Version | Highlights |
 |---|---|
+| **1.5** | Five new tool agents in `tools/`: `nero-st`, `nero-card`, `nero-comfy`, `nero-context`, and `nero-renpy`. 29 agents in total. |
 | **1.4** | Five new agents: `nero-history`, `nero-romance`, `nero-villain`, `nero-scenario`, and `nero-sandbox`. 24 agents in total. |
 | **1.3** | Five new agents: `nero-factions`, `nero-creatures`, `nero-magic`, `nero-cultures` (new `creatures/` folder), and `nero-lorebook` (new `tools/` folder). 19 agents in total. |
 | **1.2** | `nero-jps` accepts plain text only (no image needed) and is fully multimodal on input (images, audio, video, documents, existing cards) with optional multimodal add-ons. |
