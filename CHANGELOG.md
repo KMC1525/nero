@@ -2,6 +2,54 @@
 
 All notable changes to NERO are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the version is the **suite version** shown in each prompt's header.
 
+## [2.2] - 2026-11-03
+
+Twenty new agents, five in each of the writing, image, video, and sound domains. The suite grows from 81 to **101 agents**. No existing file paths change.
+
+### Added
+
+Each new agent follows the suite pattern (Core Directives, Quick/Standard/Deep depths, Compact Block, multimodal input and output, SFW/NSFW/Auto modes, removable adult modules, and hand-offs), and each states where its limits are.
+
+**`writing/`** (+5)
+- `writing/fiction/nero-plot`: plot architecture (structures, beat sheets, twists and reveals, mystery truth tables, subplots, setup and payoff maps, plot-hole stress tests).
+- `writing/fiction/nero-humor`: comedy writing (jokes, sketches, stand-up, satire and parody, punch-up), with explicit lines about demeaning, defaming, and sexualizing.
+- `writing/professional/nero-book`: non-fiction books (positioning, structure, chapter templates, memoir, ebooks, proposals), with honesty rules about facts and the author's life.
+- `writing/professional/nero-academic`: scholarly writing (research questions, argument maps, IMRaD and thesis structure, literature reviews, grants, reviewer responses), with strict integrity rules: no invented data, references, or quotes, and attention to institutional AI policies.
+- `writing/editing/nero-translate`: translation and adaptation (voice and register, localization versus transcreation, glossaries, translator notes, quality checks).
+
+**`image/`** (+5)
+- `image/art/nero-pixel`: pixel art (canvas and palette specs, color ramps, silhouettes, animation frame plans, tilesets, cleanup of generated art).
+- `image/art/nero-modeling`: 3D art direction and production (blockout, topology, UVs, PBR texturing, rigging basics, lighting, rendering, engine export, 3D printing notes).
+- `image/art/nero-avatar`: avatars and identity art (PFPs, VTuber layer plans, mascots, emote and sticker sets, brand kits, commissioning briefs), with no-impersonation rules.
+- `image/design/nero-uiux`: app and web UI/UX (research, flows, wireframes, design systems and tokens, accessibility, states, microcopy), with an ethical-design rule against dark patterns.
+- `image/design/nero-infographic`: infographics and data visualization (chart choice, layout, color and type, annotation), with honesty and accessibility rules.
+
+**`video/`** (+5)
+- `video/scripts/nero-docu`: documentary and non-fiction video (angle, research and access, structure, interview plans, narration), with ethics for consent, labeled recreations, and no fabrication.
+- `video/scripts/nero-musicvideo`: music videos (song maps, concepts, treatments, beat-synced shot plans, lyric videos, visualizers, versions).
+- `video/scripts/nero-shorts`: short-form and creator video (hooks, scripts, formats, shot plans, captions, posting plans, YouTube long-form packaging), with disclosure and platform-rule guidance.
+- `video/craft/nero-vfx`: visual effects and motion graphics (shot breakdowns, keying, tracking, compositing, CG integration, on-set requirements), with rules against deepfakes and fake evidence and a safety boundary for practical effects.
+- `video/craft/nero-dub`: subtitles, captions, dubbing scripts with lip-sync notes, audio description, SRT and delivery specs, and synthetic-voice consent rules.
+
+**`sound/`** (+5)
+- `sound/music/nero-beat`: beatmaking and electronic production (tempo and groove, drum step grids, bass, hooks, arrangement maps, sampling and clearance, AI music prompts).
+- `sound/music/nero-orchestra`: arrangement, orchestration, and notation (ranges and techniques, voicing and balance, ABC and LilyPond text notation, mockups, rehearsal plans).
+- `sound/music/nero-theory`: music theory and ear training (scales, harmony, form, analysis, practice plans, exercises with answers), across traditions.
+- `sound/production/nero-synth`: synthesis and patch design (subtractive, FM, wavetable, granular, and sampling recipes, portable across synths).
+- `sound/production/nero-sonic`: audio branding (sonic strategy, sonic logos, jingles, UI and product sounds, voice identity, sound guidelines), with originality and rights rules.
+
+### Changed
+
+- **Core Directives (identical in all 101 files):** the *NERO suite* table lists the 20 new agents.
+- **Version:** every prompt header moved from `2.1` to `2.2`.
+- **Cross-domain hand-offs** added to existing agents so the new ones are reachable: for example `nero-story` to `nero-plot` and `nero-humor`, `nero-edit` and `nero-poetry` to `nero-translate`, `nero-professional` and `nero-article` to `nero-academic` and `nero-book`, `nero-art`, `nero-concept`, and `nero-prompt` to `nero-pixel`, `nero-modeling`, and `nero-avatar`, `nero-design` to `nero-uiux` and `nero-infographic`, `nero-screenplay`, `nero-ad`, and `nero-series` to the new video scripts agents, `nero-cut`, `nero-animation`, `nero-cinematography`, and `nero-vidprompt` to `nero-vfx` and `nero-dub`, `nero-music`, `nero-lyrics`, `nero-score`, `nero-sfx`, `nero-mix`, `nero-voice`, and `nero-podcast` to the new sound agents, and the games agents `nero-assets`, `nero-gameui`, and `nero-localize` to the new image and writing agents.
+- **`README.md` and `README.pt-BR.md` updated:** 101 agents, domain counts, domain descriptions, "Which agent should I use?" rows, the repository tree, agent tables per category, the per-domain workflow diagrams, and the version table.
+
+### Notes
+
+- Option names, tool syntax, platform limits, and format specs (subtitle reading speeds, loudness, tempo ranges, and similar) are marked as guides or version-dependent where they appear.
+- A children's-writing agent was deliberately not added: every NERO agent supports SFW and NSFW modes by project rule, which does not fit an agent for young readers. Children's and young-adult fiction remain covered, as non-sexual content, by `nero-story`.
+
 ## [2.1] - 2026-11-03
 
 A new domain: **games**. NERO now covers the whole path of making a game, from the first idea to the store page, and the engines people actually use. The suite grows from 59 to **81 agents** in **six domains**. Existing file paths do not change, except `nero-renpy` (see Migration).
@@ -262,6 +310,7 @@ Five new agents, each following the suite pattern (Core Directives, Quick/Standa
 - A shared Core Directives block kept identical across agents, with three hard limits (no sexual content involving minors, none about real people, no real-world operational instructions).
 - Project `README.md` in Portuguese.
 
+[2.2]: https://github.com/KMC1525/nero/releases/tag/v2.2
 [2.1]: https://github.com/KMC1525/nero/releases/tag/v2.1
 [2.0]: https://github.com/KMC1525/nero/releases/tag/v2.0
 [1.5]: https://github.com/KMC1525/nero/releases/tag/v1.5
