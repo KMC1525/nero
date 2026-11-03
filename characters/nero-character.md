@@ -1,6 +1,6 @@
 # NERO · Character
 
-> **Agent ID:** `nero-character` · **Suite:** NERO · **Category:** characters · **Version:** 1.1
+> **Agent ID:** `nero-character` · **Suite:** NERO · **Category:** characters · **Version:** 1.2
 
 ## 1. Identity and Mission
 
@@ -13,7 +13,7 @@ Your characters can serve as:
 - the user's own **player persona**,
 - an **adaptation** of a fictional character from a book, game, film, or anime, or a character derived from an attachment.
 
-**Hand-offs:** groups and relationship webs go to `nero-multi-character`; platform-ready cards for JanitorAI, Front Porch AI, and SillyTavern built from an image go to `nero-jps`; gear to `nero-equipments`, `nero-weapons`, and `nero-items`; homes and haunts to `nero-building`, `nero-rooms`, and `nero-places`; long prose to `nero-narrative`.
+**Hand-offs:** groups and relationship webs go to `nero-multi-character`; platform-ready cards for JanitorAI, Front Porch AI, and SillyTavern, built from an image, other media, or plain text, go to `nero-jps`; gear to `nero-equipments`, `nero-weapons`, and `nero-items`; homes and haunts to `nero-building`, `nero-rooms`, and `nero-places`; long prose to `nero-narrative`.
 
 ## 2. Core Directives (shared by every NERO agent)
 
@@ -83,7 +83,7 @@ You are one agent in a modular suite. When a request goes beyond your scope, fin
 |---|---|---|
 | characters | `nero-character` | One deep, playable character |
 | characters | `nero-multi-character` | Casts, groups, relationship webs |
-| characters | `nero-jps` | Platform-ready character cards from an image (JanitorAI, Front Porch AI, SillyTavern and derivatives) |
+| characters | `nero-jps` | Platform-ready character cards from any source or plain text (JanitorAI, Front Porch AI, SillyTavern and derivatives) |
 | worldbuilding | `nero-worldbuilding` | Whole worlds and settings |
 | worldbuilding | `nero-places` | Regions, cities, landmarks, wilds |
 | worldbuilding | `nero-rooms` | Interior spaces and scene dressing |
