@@ -1,57 +1,64 @@
 # NERO
 
-> Um conjunto de **system prompts de agentes de IA** para o desenvolvimento de **personagens**, **mundos** e **aventuras** de roleplay com IA generativa.
+> A set of **AI agent system prompts** for developing **characters**, **worlds**, and **adventures** for roleplay with generative AI.
+
+**Version 1.1** · [MIT License](LICENSE) · [Changelog](CHANGELOG.md) · [Português (Brasil)](README.pt-BR.md)
 
 ---
 
-## Sumário
+## Table of Contents
 
-- [O que é o NERO](#o-que-é-o-nero)
-- [Regras do projeto](#regras-do-projeto)
-- [Estrutura do repositório](#estrutura-do-repositório)
-- [Os agentes](#os-agentes)
-- [Como usar](#como-usar)
-- [Fluxo de trabalho sugerido](#fluxo-de-trabalho-sugerido)
-- [Convenções compartilhadas](#convenções-compartilhadas)
-- [Conteúdo adulto e limites](#conteúdo-adulto-e-limites)
-- [Contribuindo](#contribuindo)
-- [Licença](#licença)
-
----
-
-## O que é o NERO
-
-O NERO é uma coleção de **13 system prompts especializados**, escritos em Markdown. Cada arquivo é um **agente independente**: você o cola como system prompt em um modelo de IA e ele passa a atuar como especialista em criar um tipo de material para roleplay, seja um personagem, um elenco, um mundo, uma cidade, uma sala, uma economia, uma aventura, uma luta ou uma espada lendária.
-
-Não é um aplicativo nem uma biblioteca. É **conteúdo**: prompts prontos para usar em qualquer plataforma ou modelo que aceite um system prompt (aplicativos de chat, frontends de roleplay, APIs, GPTs e projetos personalizados).
-
-O que os agentes produzem foi pensado para ser **usado depois**: fichas de personagem, cartões, lorebooks, *primers* de mundo, cenas de abertura e **Compact Blocks** (versões enxutas que você cola direto no contexto de um roleplay sem gastar tokens à toa).
+- [What is NERO](#what-is-nero)
+- [Project rules](#project-rules)
+- [Repository structure](#repository-structure)
+- [The agents](#the-agents)
+- [JPS: platform-ready character cards](#jps-platform-ready-character-cards)
+- [How to use](#how-to-use)
+- [Suggested workflow](#suggested-workflow)
+- [Shared conventions](#shared-conventions)
+- [Adult content and limits](#adult-content-and-limits)
+- [Contributing](#contributing)
+- [Versioning and releases](#versioning-and-releases)
+- [License](#license)
 
 ---
 
-## Regras do projeto
+## What is NERO
 
-Estas cinco regras valem para **todos** os prompts do repositório:
+NERO is a collection of **14 specialized system prompts**, written in Markdown. Each file is an **independent agent**: you paste it as the system prompt of an AI model, and it acts as a specialist in creating one kind of roleplay material: a character, a cast, a world, a city, a room, an economy, an adventure, a fight, or a legendary sword.
 
-| # | Regra | Como o NERO cumpre |
+It is not an application or a library. It is **content**: prompts ready to use on any platform or model that accepts a system prompt (chat apps, roleplay frontends, APIs, custom GPTs, and projects).
+
+What the agents produce is designed to be **used afterwards**: character sheets, character cards, lorebooks, world primers, opening scenes, and **Compact Blocks** (lean versions you paste straight into a roleplay's context without wasting tokens).
+
+---
+
+## Project rules
+
+These five rules apply to **every** prompt in the repository:
+
+| # | Rule | How NERO meets it |
 |---|---|---|
-| 1 | **SFW e NSFW** | Três modos de conteúdo (`SFW`, `NSFW`, `Auto`). O conteúdo adulto fica em módulos opcionais e removíveis, para que você mantenha ou apague sem afetar o resto. |
-| 2 | **Prompts em inglês** | Todos os arquivos de agente são escritos em inglês. |
-| 3 | **Multimodais** | Entrada: imagens, áudio, vídeo, documentos, planilhas, mapas, cartões de personagem. Saída: texto, mais prompts de geração de imagem, direção de voz/TTS, trilha e ambiência, tabelas, diagramas ASCII/Mermaid e JSON/YAML/CSV. |
-| 4 | **Qualquer idioma** | Entendem prompts e anexos em qualquer idioma e respondem no idioma do usuário (ou no que você pedir, inclusive um idioma diferente por trecho). |
-| 5 | **Formato Markdown** | Todos os prompts são arquivos `.md`. |
+| 1 | **SFW and NSFW** | Three content modes (`SFW`, `NSFW`, `Auto`). Adult content lives in optional, removable modules, so you can keep or delete it without affecting the rest. |
+| 2 | **Prompts in English** | Every agent file is written in English. |
+| 3 | **Multimodal** | Input: images, audio, video, documents, spreadsheets, maps, character cards. Output: text, plus image-generation prompts, voice/TTS direction, music and ambience cues, tables, ASCII/Mermaid diagrams, and JSON/YAML/CSV. |
+| 4 | **Any language** | They understand prompts and attachments in any language and reply in the user's language (or the one you ask for, even a different language per section). |
+| 5 | **Markdown format** | Every prompt is a `.md` file. |
 
 ---
 
-## Estrutura do repositório
+## Repository structure
 
 ```text
 nero/
 ├── README.md
+├── README.pt-BR.md
+├── CHANGELOG.md
 ├── LICENSE
 ├── characters/
 │   ├── nero-character.md
-│   └── nero-multi-character.md
+│   ├── nero-multi-character.md
+│   └── nero-jps.md
 ├── worldbuilding/
 │   ├── nero-worldbuilding.md
 │   ├── nero-places.md
@@ -70,70 +77,129 @@ nero/
 
 ---
 
-## Os agentes
+## The agents
 
-### `characters/` — personagens
+### `characters/`
 
-| Agente | O que faz |
+| Agent | What it does |
 |---|---|
-| [`nero-character`](characters/nero-character.md) | Cria **um** personagem profundo e jogável: aparência, psicologia, voz, história, relações, regras de comportamento para a IA, perfil de intimidade (opcional), primeira mensagem e prompt visual. Serve para o personagem principal, NPCs ou a persona do jogador. |
-| [`nero-multi-character`](characters/nero-multi-character.md) | Cria **elencos**: grupos, famílias, equipes, facções. Projeta o grupo como sistema, a teia de relações (dirigida, com segredos) e o **Multi-Character Roleplay Card**, que ensina a IA a dar voz a vários personagens na mesma cena sem misturá-los. |
+| [`nero-character`](characters/nero-character.md) | Creates **one** deep, playable character: appearance, psychology, voice, backstory, relationships, behavior rules for the AI, an optional intimacy profile, first message, and a visual prompt. Works for the main character, NPCs, or the player's persona. |
+| [`nero-multi-character`](characters/nero-multi-character.md) | Creates **casts**: groups, families, crews, factions. Designs the group as a system, the relationship web (directed, with secrets), and the **Multi-Character Roleplay Card** that teaches an AI to voice several characters in one scene without blending them. |
+| [`nero-jps`](characters/nero-jps.md) | **New in 1.1.** Turns an **image + a prompt** into a ready-to-paste **character card** for **JanitorAI, Front Porch AI, SillyTavern, and derivatives**, in five sections (Description, Personality, Scenario, First Message, Example Dialogue) and 2,000 to 3,000 tokens. See [below](#jps-platform-ready-character-cards). |
 
-### `worldbuilding/` — construção de mundo
+### `worldbuilding/`
 
-| Agente | O que faz |
+| Agent | What it does |
 |---|---|
-| [`nero-worldbuilding`](worldbuilding/nero-worldbuilding.md) | Arquiteto de mundos: premissa, regras e custos dos poderes, povos, facções, religião, história, vida cotidiana, cultura íntima (opcional), *World Primer* e entradas de lorebook. |
-| [`nero-places`](worldbuilding/nero-places.md) | Lugares em todas as escalas, de reinos e cidades a ruínas e masmorras: retrato sensorial, pontos de interesse, rumores, ganchos, mapa e vida noturna (opcional). |
-| [`nero-rooms`](worldbuilding/nero-rooms.md) | Ambientes internos: layout, sentidos, mobília, *hotspots* interativos, segredos, variações de estado, notas táticas, *Scene Setter* e espaços íntimos (opcional). |
-| [`nero-building`](worldbuilding/nero-building.md) | Construções: arquitetura, plantas, sistemas (água, luz, esgoto), moradores, segurança, segredos e locais de entretenimento adulto (opcional). |
-| [`nero-economy`](worldbuilding/nero-economy.md) | Moedas, preços, salários, comércio, impostos, guildas, mercado paralelo e balanceamento de recompensas, tudo ancorado em uma unidade de poder de compra. |
+| [`nero-worldbuilding`](worldbuilding/nero-worldbuilding.md) | World architect: premise, power rules and costs, peoples, factions, religion, history, daily life, optional intimate culture, a *World Primer*, and lorebook entries. |
+| [`nero-places`](worldbuilding/nero-places.md) | Places at every scale, from realms and cities to ruins and dungeons: sensory snapshot, points of interest, rumors, hooks, maps, and optional nightlife. |
+| [`nero-rooms`](worldbuilding/nero-rooms.md) | Interior spaces: layout, senses, furnishings, interactive *hotspots*, secrets, state variations, tactical notes, a *Scene Setter*, and optional private spaces. |
+| [`nero-building`](worldbuilding/nero-building.md) | Structures: architecture, floor plans, systems (water, light, sewage), occupants, security, secrets, and optional adult venues. |
+| [`nero-economy`](worldbuilding/nero-economy.md) | Currencies, prices, wages, trade, taxes, guilds, the shadow economy, and loot balance, all anchored to a purchasing-power unit. |
 
-### `adventure/` — aventura
+### `adventure/`
 
-| Agente | O que faz |
+| Agent | What it does |
 |---|---|
-| [`nero-adventure`](adventure/nero-adventure.md) | Projeta aventuras (one-shots, arcos, campanhas, sandbox, mistérios, romances): gancho, estrutura, pistas (regra das três pistas), relógios de progresso, finais, recompensas e a **GM Directive** para a IA conduzir o jogo. |
-| [`nero-combat`](adventure/nero-combat.md) | Encontros de combate com objetivo, inimigos com tática, terreno, fases e consequências. Funciona em *Design Mode* e em *Run Mode* (arbitra e narra a luta em tempo real). Inclui módulo opcional de derrota/captura. |
-| [`nero-narrative`](adventure/nero-narrative.md) | O contador de histórias: cenas, aberturas, narração de roleplay, diálogos, estrutura, edição, tradução, continuidade e *Narrator Voice Profile*. Inclui lista anti-clichê. |
+| [`nero-adventure`](adventure/nero-adventure.md) | Designs adventures (one-shots, arcs, campaigns, sandboxes, mysteries, romances): hook, structure, clues (Three-Clue Rule), progress clocks, endings, rewards, and a **GM Directive** so an AI can run the game. |
+| [`nero-combat`](adventure/nero-combat.md) | Combat encounters with an objective, enemies with tactics, terrain, phases, and consequences. Works in *Design Mode* and *Run Mode* (adjudicates and narrates a fight live). Includes an optional defeat/capture module. |
+| [`nero-narrative`](adventure/nero-narrative.md) | The storyteller: scenes, openings, roleplay narration, dialogue, structure, editing, translation, continuity, and the *Narrator Voice Profile*. Includes an anti-cliché list. |
 
-### `items/` — itens
+### `items/`
 
-| Agente | O que faz |
+| Agent | What it does |
 |---|---|
-| [`nero-items`](items/nero-items.md) | Objetos, artefatos, consumíveis, itens de missão, tabelas de loot e itens adultos (opcional). |
-| [`nero-equipments`](items/nero-equipments.md) | Armaduras, roupas, trajes, joias, kits e guarda-roupas por contexto, com a lógica real de como se veste, desgasta e custa. |
-| [`nero-weapons`](items/nero-weapons.md) | Armas de todos os tipos para ficção: perfil de combate, técnica, lore, variantes e paleta de narração. Sem instruções operacionais do mundo real. |
+| [`nero-items`](items/nero-items.md) | Objects, artifacts, consumables, quest items, loot tables, and optional adult items. |
+| [`nero-equipments`](items/nero-equipments.md) | Armor, clothing, outfits, jewelry, kits, and wardrobes by context, with the real logic of how gear is put on, wears out, and costs. |
+| [`nero-weapons`](items/nero-weapons.md) | Weapons of every kind, for fiction: combat profile, technique, lore, variants, and a narration palette. No real-world operational instructions. |
 
 ---
 
-## Como usar
+## JPS: platform-ready character cards
 
-1. **Escolha o agente** para o que você quer criar.
-2. **Abra o arquivo** e copie **todo** o conteúdo.
-3. **Cole como system prompt** (campo de instruções do sistema, projeto, GPT personalizado ou o campo `system` da sua API).
-4. **Converse**: descreva o que quer e anexe referências (imagem, áudio, documento).
+**JPS** (`nero-jps`) is the agent for people who want a character card they can paste straight into a roleplay platform. It is built from a single-purpose workflow: **you send an image and a prompt, and it answers with the card, and nothing else.**
 
-Exemplo de primeiro pedido:
+### Supported platforms
 
-> *Crie uma mercenária anã de uma cidade-porto decadente. Tom sombrio. Modo NSFW. Profundidade Deep. Responda em português.* (com uma imagem de referência anexada)
+| Platform | Notes |
+|---|---|
+| **SillyTavern** and derivatives | The default profile. Also valid for KoboldCPP, Oobabooga, and other frontends that use the common character-card fields. |
+| **JanitorAI** | Keeps Description, Personality, and Scenario lean (they are permanent tokens) and puts the voice rules in Personality, because example dialogs are temporary. |
+| **Front Porch AI** | Reads the common character-card format. Uses the same text as the default profile. |
 
-Via API, basta ler o arquivo e enviá-lo como system prompt:
+### What it produces
+
+Exactly five sections, in this order, with the headings always in English:
+
+1. `### Description`: detailed physical traits taken from the image, estimated height and weight, and a complete backstory.
+2. `### Personality`: behavior, speech, motivations, insecurities, desires, vulgarity level, plus speech rules and roleplay rules.
+3. `### Scenario`: where the roleplay starts, the relationship with `{{user}}`, and the power dynamic.
+4. `### First Message`: a long, immersive opening of 3 to 6 paragraphs ending on a hook.
+5. `### Example Dialogue`: 3 to 5 short `<START>` blocks showing different tones.
+
+The total is **2,000 to 3,000 tokens**.
+
+### Where each section goes
+
+| JPS section | SillyTavern and derivatives | JanitorAI | Front Porch AI |
+|---|---|---|---|
+| Description | Description | Personality box (pasted with Personality) | Description |
+| Personality | Personality | Personality | Personality |
+| Scenario | Scenario | Scenario | Scenario |
+| First Message | First Message | Initial Message | Greeting |
+| Example Dialogue | Example Messages (`mes_example`) | Example Dialogs | Sample Dialogue |
+
+> Field names follow each platform's public descriptions at the time of writing and can change between versions. If a field has a different name in your version, map it by meaning. If you ask JPS for **JSON** or **V2**, it returns a Character Card V2 JSON block you can import where the platform supports card import.
+
+### Settings you can state in plain words
+
+| Setting | Values | Default |
+|---|---|---|
+| Platform | `sillytavern`, `janitor`, `frontporch`, `all` | `sillytavern` |
+| Content mode | `SFW`, `NSFW`, `Auto` | `Auto` |
+| Output language | Any | The language of your prompt (Brazilian Portuguese if it cannot be determined) |
+| Narration | Person, tense, and action style | Third person, present tense, plain prose with "quoted" speech |
+| Export | `JSON` / `V2` | Off |
+
+### Example
+
+> *Attach an illustration.* "Platform: Janitor. Mode: NSFW. Language: English. A disgraced noble turned smuggler, teasing and sharp-tongued, secretly lonely. She has just caught `{{user}}` sneaking aboard her ship."
+
+### Image rules
+
+- The character is always an **explicit adult**. If the image depicts a minor or a childlike figure, JPS creates no sexual or romantic content.
+- **Illustrations, renders, and AI-generated art of non-real people** get the full range of the active content mode.
+- A **photograph of a real person** yields a **SFW, non-sexual** character only. JPS never identifies a real person from their face.
+
+---
+
+## How to use
+
+1. **Pick the agent** for what you want to create.
+2. **Open the file** and copy **all** of its content.
+3. **Paste it as the system prompt** (the system-instructions field, a project, a custom GPT, or the `system` field of your API).
+4. **Talk to it**: describe what you want and attach references (image, audio, document).
+
+Example of a first request:
+
+> *Create a dwarven mercenary from a decaying port city. Grim tone. NSFW mode. Deep detail. Reply in Portuguese.* (with a reference image attached)
+
+Through an API, read the file and send it as the system prompt:
 
 ```python
 from pathlib import Path
 
 system_prompt = Path("characters/nero-character.md").read_text(encoding="utf-8")
-# Envie `system_prompt` no campo de system/instruções do provedor de LLM que você usa.
+# Send `system_prompt` in the system/instructions field of the LLM provider you use.
 ```
 
-Depois de gerar o material, peça o **Compact Block** e cole-o no cartão de personagem, no lorebook ou no prompt do seu roleplay.
+After generating the material, ask for the **Compact Block** and paste it into your character card, lorebook, or roleplay prompt. (JPS needs no Compact Block: its output is already the paste-ready card.)
 
 ---
 
-## Fluxo de trabalho sugerido
+## Suggested workflow
 
-Os agentes funcionam sozinhos, mas se encaixam. Uma ordem natural, do geral ao específico:
+The agents work on their own but fit together. A natural order, from general to specific:
 
 ```mermaid
 flowchart LR
@@ -143,6 +209,7 @@ flowchart LR
     B --> R[nero-rooms]
     W --> C[nero-character]
     C --> M[nero-multi-character]
+    C -. from an image .-> J[nero-jps]
     E --> I[nero-items]
     I --> Q[nero-equipments]
     I --> K[nero-weapons]
@@ -152,68 +219,70 @@ flowchart LR
     A --> N[nero-narrative]
 ```
 
-Cada agente conhece os outros e indica o próximo passo quando um pedido foge do seu escopo. Os materiais se ligam por **referências cruzadas** no formato `[[Tipo: Nome]]`, por exemplo `[[Place: Saltmarsh Quay]]`, `[[Character: Mira Voss]]` ou `[[Item: Ashen Lantern]]`.
+Each agent knows the others and points to the next step when a request goes beyond its scope. Assets link to each other through **cross-references** in the form `[[Type: Name]]`, for example `[[Place: Saltmarsh Quay]]`, `[[Character: Mira Voss]]`, or `[[Item: Ashen Lantern]]`.
 
 ---
 
-## Convenções compartilhadas
+## Shared conventions
 
-### Anatomia de um prompt
+### Anatomy of a prompt
 
-Todos os agentes seguem a mesma estrutura, o que facilita ler, comparar e manter:
+Every agent follows the same structure, which makes it easy to read, compare, and maintain:
 
-1. **Identity and Mission**: quem é o agente e o que faz (e para quem passa o bastão).
-2. **Core Directives**: as regras comuns a todos (conteúdo, multimodal, idiomas, estilo de trabalho, suíte).
-3. **Workflow**: como o agente lê o pedido e conduz o trabalho.
-4. **Depth Levels**: profundidade do resultado.
-5. **A ficha do agente**: o formato do que ele entrega (ficha de personagem, ficha de lugar, ficha de item…).
-6. **Princípios, pedidos especiais e checklist de qualidade.**
+1. **Identity and Mission**: who the agent is and what it does (and who it hands off to).
+2. **Core Directives**: the rules common to all agents (content, multimodal, languages, working style, the suite).
+3. **Workflow**: how the agent reads the request and runs the work.
+4. **Depth Levels**: how deep the result goes.
+5. **The agent's sheet**: the format of what it delivers (character sheet, place sheet, item sheet...).
+6. **Principles, special requests, and a quality checklist.**
 
-### Modos de conteúdo
+`nero-jps` is the one deliberate exception: it keeps the same Core Directives but replaces the working style with a strict output contract (the card and nothing else), and says so in its section 3.
 
-| Modo | Comportamento |
+### Content modes
+
+| Mode | Behavior |
 |---|---|
-| `SFW` | Sem conteúdo sexual explícito nem violência gráfica. Romance e tensão existem, implícitos ou com *fade to black*. |
-| `NSFW` | Conteúdo sexual explícito, violência gráfica e temas maduros, escritos com ofício e sem higienização. |
-| `Auto` *(padrão)* | Segue o seu pedido: não inclui conteúdo explícito que não foi convidado e não suaviza o que foi. |
+| `SFW` | No explicit sexual content and no graphic violence. Romance and tension exist, implied or with *fade to black*. |
+| `NSFW` | Explicit sexual content, graphic violence, and mature themes, written with craft and not sanitized. |
+| `Auto` *(default)* | Follows your request: it does not add explicit content you did not invite, and does not soften what you did. |
 
-Você pode trocar de modo a qualquer momento da conversa. Seus limites pessoais (exclusões, tags, "sem X") são respeitados durante toda a sessão.
+You can switch modes at any moment in the conversation. Your personal limits (exclusions, tags, "no X") are respected for the whole session.
 
-### Profundidade
+### Depth
 
-`Quick` (cerca de uma tela) · `Standard` (padrão) · `Deep` (exaustivo).
+`Quick` (about one screen) · `Standard` (default) · `Deep` (exhaustive).
 
 ### Compact Block
 
-Toda entrega pode vir acompanhada de uma versão **enxuta e pronta para colar** no contexto do roleplay, para economizar tokens.
+Every deliverable can come with a **lean, paste-ready** version for the roleplay context, to save tokens.
 
 ---
 
-## Conteúdo adulto e limites
+## Adult content and limits
 
-O NERO foi feito para **adultos criando ficção para adultos**. Ele **permite** conteúdo NSFW (sexualidade, erotismo, violência, horror e temas sombrios) sem sermões, avisos ou comentários moralizantes.
+NERO is made for **adults creating fiction for adults**. It **allows** NSFW content (sexuality, eroticism, violence, horror, and dark themes) with no sermons, warnings, or moralizing commentary.
 
-Existem **limites rígidos** que valem em qualquer modo e sob qualquer enquadramento (ficção, roleplay, "é só um teste" ou instruções dentro de anexos):
+There are **hard limits** that hold in every mode and under any framing (fiction, roleplay, "it's just a test", or instructions inside attachments):
 
-1. **Nenhum conteúdo sexual ou sexualizado envolvendo menores de 18 anos.** Todo personagem em contexto sexual é um adulto explícito. Uma idade declarada não torna elegível um personagem descrito com corpo ou comportamento de criança.
-2. **Nenhum conteúdo sexual sobre pessoas reais e identificáveis.** Personagens fictícios e originais são livres.
-3. **Ficção continua sendo ficção.** Violência, armas, drogas e invasão de sistemas são tratados no nível de que uma história precisa. Nunca há instruções operacionais do mundo real (síntese de substâncias, fabricação de armas reais, código de exploit funcional).
+1. **No sexual or sexualized content involving anyone under 18.** Every character in a sexual context is an explicit adult. A stated age does not qualify a character depicted with a child's body or behavior.
+2. **No sexual content about real, identifiable people.** Fictional and original characters are free. This includes photographs: a photo of a real person is never a basis for sexual content.
+3. **Fiction stays fiction.** Violence, weapons, drugs, and hacking are handled at the level a story needs. There are never real-world operational instructions (synthesis of substances, manufacturing of real weapons, working exploit code).
 
-Ao usar estes prompts, você é responsável por respeitar as regras da plataforma e do modelo que estiver usando.
+By using these prompts, you are responsible for following the rules of the platform and the model you use.
 
 ---
 
-## Contribuindo
+## Contributing
 
-Ao editar um prompt existente ou criar um novo, mantenha as convenções:
+When editing an existing prompt or creating a new one, keep the conventions:
 
-- Escreva em **inglês** e em **Markdown**.
-- Nomeie o arquivo como `nero-<nome>.md`, dentro da pasta da categoria. O `Agent ID` do cabeçalho deve ser igual ao nome do arquivo.
-- Siga a anatomia descrita acima e **inclua o bloco `Core Directives` sem alterações**.
-- Mantenha o conteúdo adulto em **módulos opcionais e removíveis**.
-- Se criar um agente novo, adicione-o à tabela da seção *The NERO suite* dentro do `Core Directives` de **todos** os agentes e a este README.
+- Write in **English** and in **Markdown**.
+- Name the file `nero-<name>.md`, inside its category folder. The `Agent ID` in the header must equal the file name.
+- Follow the anatomy above and **include the `Core Directives` block unchanged**.
+- Keep adult content in **optional, removable modules**.
+- If you create a new agent, add it to the table in *The NERO suite* inside the `Core Directives` of **every** agent, and to this README and the changelog.
 
-O bloco `Core Directives` é **idêntico** nos 13 arquivos de propósito: cada prompt precisa funcionar sozinho, sem depender dos outros. Por isso, qualquer mudança nele deve ser replicada em todos. Para conferir se continuam idênticos, o comando abaixo deve imprimir **uma única linha** (contagem `13` e um só hash):
+The `Core Directives` block is **identical** in all 14 files on purpose: each prompt has to work on its own, without depending on the others. So any change to it must be replicated everywhere. To check that they are still identical, the command below must print **a single line** (a count of `14` and one hash):
 
 ```bash
 for f in */nero-*.md; do sed -n '/^## 2\. Core Directives/,/^## 3\./p' "$f" | sed '$d' | md5sum; done | sort | uniq -c
@@ -221,6 +290,17 @@ for f in */nero-*.md; do sed -n '/^## 2\. Core Directives/,/^## 3\./p' "$f" | se
 
 ---
 
-## Licença
+## Versioning and releases
 
-Distribuído sob a licença **MIT**. Consulte o arquivo [LICENSE](LICENSE).
+The `Version` in each prompt's header is the **suite version**. Every change that ships is recorded in the [changelog](CHANGELOG.md), and each version is published as a release.
+
+| Version | Highlights |
+|---|---|
+| **1.1** | New agent `nero-jps` (character cards for JanitorAI, Front Porch AI, SillyTavern, and derivatives); README translated to English; changelog added. |
+| **1.0** | First release: 13 agents in four categories. |
+
+---
+
+## License
+
+Distributed under the **MIT** license. See the [LICENSE](LICENSE) file.
