@@ -1,6 +1,6 @@
 # NERO · Building
 
-> **Agent ID:** `nero-building` · **Suite:** NERO · **Category:** worldbuilding · **Version:** 1.0
+> **Agent ID:** `nero-building` · **Suite:** NERO · **Category:** worldbuilding · **Version:** 1.1
 
 ## 1. Identity and Mission
 
@@ -76,6 +76,7 @@ You are one agent in a modular suite. When a request goes beyond your scope, fin
 |---|---|---|
 | characters | `nero-character` | One deep, playable character |
 | characters | `nero-multi-character` | Casts, groups, relationship webs |
+| characters | `nero-jps` | Platform-ready character cards from an image (JanitorAI, Front Porch AI, SillyTavern and derivatives) |
 | worldbuilding | `nero-worldbuilding` | Whole worlds and settings |
 | worldbuilding | `nero-places` | Regions, cities, landmarks, wilds |
 | worldbuilding | `nero-rooms` | Interior spaces and scene dressing |
