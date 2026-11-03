@@ -1,8 +1,8 @@
 # NERO
 
-> A set of **AI agent system prompts** for developing **characters**, **worlds**, and **adventures** for roleplay with generative AI.
+> A suite of **AI agent system prompts** for **creative work with generative AI**: **roleplay**, **writing**, **image**, **video**, and **sound**.
 
-**Version 1.5** · [MIT License](LICENSE) · [Changelog](CHANGELOG.md) · [Português (Brasil)](README.pt-BR.md)
+**Version 2.0** · [MIT License](LICENSE) · [Changelog](CHANGELOG.md) · [Português (Brasil)](README.pt-BR.md)
 
 ---
 
@@ -25,17 +25,44 @@
 
 ## What is NERO
 
-NERO is a collection of **29 specialized system prompts**, written in Markdown. Each file is an **independent agent**: you paste it as the system prompt of an AI model, and it acts as a specialist in creating one kind of roleplay material: a character, a cast, a world, a city, a room, an economy, an adventure, a fight, or a legendary sword.
+NERO is a collection of **59 specialized system prompts**, written in Markdown, for **creative work with generative AI**. Each file is an **independent agent**: you paste it as the system prompt of an AI model, and it acts as a specialist in one craft: a character, a world, an adventure, a novel, a fan fiction, a piece of ad copy, a logo, a film script, a storyboard, a song, or a mix.
+
+NERO began as a set of agents for **roleplay**. Since version 2.0 it covers five domains:
+
+| Domain | What it covers | Agents |
+|---|---|---|
+| **Roleplay** | Characters, worlds, adventures, items, and the tools that connect them to roleplay platforms (SillyTavern, JanitorAI, Front Porch AI, Ren'Py). | 28 |
+| **Writing** | Creative and professional writing: original fiction, fan fiction, erotica, poetry, copy, business and technical documents, articles, and editing. | 8 |
+| **Image** | Artistic and design imagery: art direction, concept design, photography, comics, graphic design, prompts for any model, ComfyUI workflows, and retouching. | 8 |
+| **Video** | Moving images: screenplays, series, advertising, storyboards, cinematography, animation, editing, and AI video generation. | 8 |
+| **Sound** | Audio: music, lyrics, scoring, sound design, mixing and mastering, voice direction, and podcasts and audio drama. | 7 |
 
 It is not an application or a library. It is **content**: prompts ready to use on any platform or model that accepts a system prompt (chat apps, roleplay frontends, APIs, custom GPTs, and projects).
 
-What the agents produce is designed to be **used afterwards**: character sheets, character cards, lorebooks, world primers, opening scenes, and **Compact Blocks** (lean versions you paste straight into a roleplay's context without wasting tokens).
+What the agents produce is designed to be **used afterwards**: character cards, lorebooks, manuscripts, scripts, shot lists, image and video prompts, lyrics, cue sheets, and **Compact Blocks** (lean versions you paste straight into the next tool without wasting tokens).
+
+### Which agent should I use?
+
+| I want to… | Use |
+|---|---|
+| Make a roleplay character from an image or text | [`nero-jps`](roleplay/characters/nero-jps.md) |
+| Build a world, a faction, or a magic system | [`nero-worldbuilding`](roleplay/worldbuilding/nero-worldbuilding.md), [`nero-factions`](roleplay/worldbuilding/nero-factions.md), [`nero-magic`](roleplay/worldbuilding/nero-magic.md) |
+| Write a short story or a novel | [`nero-story`](writing/fiction/nero-story.md) |
+| Write fan fiction or erotic fiction | [`nero-fanfic`](writing/fiction/nero-fanfic.md), [`nero-erotica`](writing/fiction/nero-erotica.md) |
+| Write marketing copy or a business document | [`nero-copy`](writing/professional/nero-copy.md), [`nero-professional`](writing/professional/nero-professional.md) |
+| Improve a draft | [`nero-edit`](writing/editing/nero-edit.md) |
+| Get a prompt for an image model | [`nero-prompt`](image/tools/nero-prompt.md), [`nero-art`](image/art/nero-art.md) |
+| Design a logo or a poster | [`nero-design`](image/design/nero-design.md) |
+| Write a screenplay or plan a series | [`nero-screenplay`](video/scripts/nero-screenplay.md), [`nero-series`](video/scripts/nero-series.md) |
+| Plan shots or make AI video clips | [`nero-storyboard`](video/craft/nero-storyboard.md), [`nero-vidprompt`](video/tools/nero-vidprompt.md) |
+| Write a song | [`nero-lyrics`](sound/music/nero-lyrics.md), [`nero-music`](sound/music/nero-music.md) |
+| Design sound or plan a podcast | [`nero-sfx`](sound/production/nero-sfx.md), [`nero-podcast`](sound/production/nero-podcast.md) |
 
 ---
 
 ## Project rules
 
-These five rules apply to **every** prompt in the repository:
+These five rules apply to **every** prompt in the repository, in all five domains:
 
 | # | Rule | How NERO meets it |
 |---|---|---|
@@ -49,111 +76,266 @@ These five rules apply to **every** prompt in the repository:
 
 ## Repository structure
 
+Agents live in `domain/category/` folders. Each file's header lists its `Domain` and `Category`, which match its folder.
+
 ```text
 nero/
 ├── README.md
 ├── README.pt-BR.md
 ├── CHANGELOG.md
 ├── LICENSE
-├── characters/
-│   ├── nero-character.md
-│   ├── nero-multi-character.md
-│   ├── nero-jps.md
-│   ├── nero-romance.md
-│   └── nero-villain.md
-├── worldbuilding/
-│   ├── nero-worldbuilding.md
-│   ├── nero-places.md
-│   ├── nero-rooms.md
-│   ├── nero-building.md
-│   ├── nero-economy.md
-│   ├── nero-factions.md
-│   ├── nero-magic.md
-│   ├── nero-cultures.md
-│   └── nero-history.md
-├── creatures/
-│   └── nero-creatures.md
-├── adventure/
-│   ├── nero-adventure.md
-│   ├── nero-combat.md
-│   ├── nero-narrative.md
-│   ├── nero-scenario.md
-│   └── nero-sandbox.md
-├── items/
-│   ├── nero-items.md
-│   ├── nero-equipments.md
-│   └── nero-weapons.md
-└── tools/
-    ├── nero-lorebook.md
-    ├── nero-st.md
-    ├── nero-card.md
-    ├── nero-comfy.md
-    ├── nero-context.md
-    └── nero-renpy.md
+├── roleplay/
+│   ├── characters/
+│   │   ├── nero-character.md
+│   │   ├── nero-multi-character.md
+│   │   ├── nero-jps.md
+│   │   ├── nero-romance.md
+│   │   └── nero-villain.md
+│   ├── worldbuilding/
+│   │   ├── nero-worldbuilding.md
+│   │   ├── nero-places.md
+│   │   ├── nero-rooms.md
+│   │   ├── nero-building.md
+│   │   ├── nero-economy.md
+│   │   ├── nero-factions.md
+│   │   ├── nero-magic.md
+│   │   ├── nero-cultures.md
+│   │   └── nero-history.md
+│   ├── creatures/
+│   │   └── nero-creatures.md
+│   ├── adventure/
+│   │   ├── nero-adventure.md
+│   │   ├── nero-combat.md
+│   │   ├── nero-narrative.md
+│   │   ├── nero-scenario.md
+│   │   └── nero-sandbox.md
+│   ├── items/
+│   │   ├── nero-items.md
+│   │   ├── nero-equipments.md
+│   │   └── nero-weapons.md
+│   └── tools/
+│       ├── nero-lorebook.md
+│       ├── nero-st.md
+│       ├── nero-card.md
+│       ├── nero-context.md
+│       └── nero-renpy.md
+├── writing/
+│   ├── fiction/
+│   │   ├── nero-story.md
+│   │   ├── nero-fanfic.md
+│   │   ├── nero-erotica.md
+│   │   └── nero-poetry.md
+│   ├── professional/
+│   │   ├── nero-copy.md
+│   │   ├── nero-professional.md
+│   │   └── nero-article.md
+│   └── editing/
+│       └── nero-edit.md
+├── image/
+│   ├── art/
+│   │   ├── nero-art.md
+│   │   ├── nero-concept.md
+│   │   ├── nero-photo.md
+│   │   └── nero-comic.md
+│   ├── design/
+│   │   └── nero-design.md
+│   └── tools/
+│       ├── nero-prompt.md
+│       ├── nero-comfy.md
+│       └── nero-retouch.md
+├── video/
+│   ├── scripts/
+│   │   ├── nero-screenplay.md
+│   │   ├── nero-series.md
+│   │   └── nero-ad.md
+│   ├── craft/
+│   │   ├── nero-storyboard.md
+│   │   ├── nero-cinematography.md
+│   │   ├── nero-animation.md
+│   │   └── nero-cut.md
+│   └── tools/
+│       └── nero-vidprompt.md
+└── sound/
+    ├── music/
+    │   ├── nero-music.md
+    │   ├── nero-lyrics.md
+    │   └── nero-score.md
+    └── production/
+        ├── nero-sfx.md
+        ├── nero-mix.md
+        ├── nero-voice.md
+        └── nero-podcast.md
 ```
 
 ---
 
 ## The agents
 
-### `characters/`
+Every agent follows the same structure (see [Shared conventions](#shared-conventions)). Agents hand off to one another across domains.
+
+### Roleplay
+
+_Characters, worlds, adventures, items, and the tools that connect them to roleplay platforms (SillyTavern, JanitorAI, Front Porch AI, Ren'Py)._
+
+#### `roleplay/characters/`
 
 | Agent | What it does |
 |---|---|
-| [`nero-character`](characters/nero-character.md) | Creates **one** deep, playable character: appearance, psychology, voice, backstory, relationships, behavior rules for the AI, an optional intimacy profile, first message, and a visual prompt. Works for the main character, NPCs, or the player's persona. |
-| [`nero-multi-character`](characters/nero-multi-character.md) | Creates **casts**: groups, families, crews, factions. Designs the group as a system, the relationship web (directed, with secrets), and the **Multi-Character Roleplay Card** that teaches an AI to voice several characters in one scene without blending them. |
-| [`nero-jps`](characters/nero-jps.md) | **New in 1.1, extended in 1.2.** Turns **any source** (image, audio, video, document, an existing card) **or plain text alone**, plus a prompt, into a ready-to-paste **character card** for **JanitorAI, Front Porch AI, SillyTavern, and derivatives**, in five sections (Description, Personality, Scenario, First Message, Example Dialogue) and 2,000 to 3,000 tokens. See [below](#jps-platform-ready-character-cards). |
-| [`nero-romance`](characters/nero-romance.md) | **New in 1.4.** The bond between characters: chemistry, power map, tension engine, arc beats, a 0 to 5 heat track, and modules for slow-burn, enemies-to-lovers, forbidden, toxic, redemptive, and found-family bonds. Optional **pair-level intimacy module** (compatibility, negotiation, escalation, aftermath) that does not repeat `nero-character`. |
-| [`nero-villain`](characters/nero-villain.md) | **New in 1.4.** Antagonists with depth: motivation and what they are right about, methods, resources, a personal relationship with the protagonist, a **proactive phased plan** with clocks and a move table, and redemption, fall, or no-redemption arcs. |
+| [`nero-character`](roleplay/characters/nero-character.md) | Creates **one** deep, playable character: appearance, psychology, voice, backstory, relationships, behavior rules for the AI, an optional intimacy profile, first message, and a visual prompt. Works for the main character, NPCs, or the player's persona. |
+| [`nero-multi-character`](roleplay/characters/nero-multi-character.md) | Creates **casts**: groups, families, crews, factions. Designs the group as a system, the relationship web (directed, with secrets), and the **Multi-Character Roleplay Card** that teaches an AI to voice several characters in one scene without blending them. |
+| [`nero-jps`](roleplay/characters/nero-jps.md) | Turns **any source** (image, audio, video, document, an existing card) **or plain text alone**, plus a prompt, into a ready-to-paste **character card** for **JanitorAI, Front Porch AI, SillyTavern, and derivatives**, in five sections (Description, Personality, Scenario, First Message, Example Dialogue) and 2,000 to 3,000 tokens. See [below](#jps-platform-ready-character-cards). |
+| [`nero-romance`](roleplay/characters/nero-romance.md) | The bond between characters: chemistry, power map, tension engine, arc beats, a 0 to 5 heat track, and modules for slow-burn, enemies-to-lovers, forbidden, toxic, redemptive, and found-family bonds. Optional **pair-level intimacy module** (compatibility, negotiation, escalation, aftermath) that does not repeat `nero-character`. |
+| [`nero-villain`](roleplay/characters/nero-villain.md) | Antagonists with depth: motivation and what they are right about, methods, resources, a personal relationship with the protagonist, a **proactive phased plan** with clocks and a move table, and redemption, fall, or no-redemption arcs. |
 
-### `worldbuilding/`
-
-| Agent | What it does |
-|---|---|
-| [`nero-worldbuilding`](worldbuilding/nero-worldbuilding.md) | World architect: premise, power rules and costs, peoples, factions, religion, history, daily life, optional intimate culture, a *World Primer*, and lorebook entries. |
-| [`nero-places`](worldbuilding/nero-places.md) | Places at every scale, from realms and cities to ruins and dungeons: sensory snapshot, points of interest, rumors, hooks, maps, and optional nightlife. |
-| [`nero-rooms`](worldbuilding/nero-rooms.md) | Interior spaces: layout, senses, furnishings, interactive *hotspots*, secrets, state variations, tactical notes, a *Scene Setter*, and optional private spaces. |
-| [`nero-building`](worldbuilding/nero-building.md) | Structures: architecture, floor plans, systems (water, light, sewage), occupants, security, secrets, and optional adult venues. |
-| [`nero-economy`](worldbuilding/nero-economy.md) | Currencies, prices, wages, trade, taxes, guilds, the shadow economy, and loot balance, all anchored to a purchasing-power unit. |
-| [`nero-factions`](worldbuilding/nero-factions.md) | **New in 1.3.** Guilds, noble houses, cults, corporations, gangs, orders, and other organizations: hierarchy and real power, resources, goals and methods, propaganda, recruitment, internal secrets, and a **Mermaid relations diagram**. |
-| [`nero-magic`](worldbuilding/nero-magic.md) | **New in 1.3.** Power systems: magic, superpowers, mystic arts, divine gifts, psionics, and arcane technology. Source, laws, costs, limits, schools and traditions, progression, risks, and the culture built around power. |
-| [`nero-cultures`](worldbuilding/nero-cultures.md) | **New in 1.3.** Peoples and societies from the inside: values, customs, taboos, festivals, family, language, aesthetics, the sacred, and the body, with a "Playing a Member" guide for narrators. |
-| [`nero-history`](worldbuilding/nero-history.md) | **New in 1.4.** Timelines and eras, shaping events with causes and long-term consequences, **official history versus truth**, legacies, generational memory, lost knowledge, and links to characters, factions, and places, with a Mermaid causal-chain diagram. |
-
-### `creatures/`
+#### `roleplay/worldbuilding/`
 
 | Agent | What it does |
 |---|---|
-| [`nero-creatures`](creatures/nero-creatures.md) | **New in 1.3.** Beasts, monsters, constructs, spirits, undead, and aberrations: ecology, behavior, combat profile, weaknesses, loot, folklore, and variants. Works in *Design Mode* and *Run Mode* (plays the creature live, like `nero-combat`). |
+| [`nero-worldbuilding`](roleplay/worldbuilding/nero-worldbuilding.md) | World architect: premise, power rules and costs, peoples, factions, religion, history, daily life, optional intimate culture, a *World Primer*, and lorebook entries. |
+| [`nero-places`](roleplay/worldbuilding/nero-places.md) | Places at every scale, from realms and cities to ruins and dungeons: sensory snapshot, points of interest, rumors, hooks, maps, and optional nightlife. |
+| [`nero-rooms`](roleplay/worldbuilding/nero-rooms.md) | Interior spaces: layout, senses, furnishings, interactive *hotspots*, secrets, state variations, tactical notes, a *Scene Setter*, and optional private spaces. |
+| [`nero-building`](roleplay/worldbuilding/nero-building.md) | Structures: architecture, floor plans, systems (water, light, sewage), occupants, security, secrets, and optional adult venues. |
+| [`nero-economy`](roleplay/worldbuilding/nero-economy.md) | Currencies, prices, wages, trade, taxes, guilds, the shadow economy, and loot balance, all anchored to a purchasing-power unit. |
+| [`nero-factions`](roleplay/worldbuilding/nero-factions.md) | Guilds, noble houses, cults, corporations, gangs, orders, and other organizations: hierarchy and real power, resources, goals and methods, propaganda, recruitment, internal secrets, and a **Mermaid relations diagram**. |
+| [`nero-magic`](roleplay/worldbuilding/nero-magic.md) | Power systems: magic, superpowers, mystic arts, divine gifts, psionics, and arcane technology. Source, laws, costs, limits, schools and traditions, progression, risks, and the culture built around power. |
+| [`nero-cultures`](roleplay/worldbuilding/nero-cultures.md) | Peoples and societies from the inside: values, customs, taboos, festivals, family, language, aesthetics, the sacred, and the body, with a "Playing a Member" guide for narrators. |
+| [`nero-history`](roleplay/worldbuilding/nero-history.md) | Timelines and eras, shaping events with causes and long-term consequences, **official history versus truth**, legacies, generational memory, lost knowledge, and links to characters, factions, and places, with a Mermaid causal-chain diagram. |
 
-### `adventure/`
-
-| Agent | What it does |
-|---|---|
-| [`nero-adventure`](adventure/nero-adventure.md) | Designs adventures (one-shots, arcs, campaigns, sandboxes, mysteries, romances): hook, structure, clues (Three-Clue Rule), progress clocks, endings, rewards, and a **GM Directive** so an AI can run the game. |
-| [`nero-combat`](adventure/nero-combat.md) | Combat encounters with an objective, enemies with tactics, terrain, phases, and consequences. Works in *Design Mode* and *Run Mode* (adjudicates and narrates a fight live). Includes an optional defeat/capture module. |
-| [`nero-narrative`](adventure/nero-narrative.md) | The storyteller: scenes, openings, roleplay narration, dialogue, structure, editing, translation, continuity, and the *Narrator Voice Profile*. Includes an anti-cliché list. |
-| [`nero-scenario`](adventure/nero-scenario.md) | **New in 1.4.** Immersive, ready-to-paste **openings**: first messages, cold opens, situational hooks, and Scenario lines, built from anchor, situation, pressure, presence, and an open door that never decides for the user. |
-| [`nero-sandbox`](adventure/nero-sandbox.md) | **New in 1.4.** Open-world and **hexcrawl** packs: hex maps and keys, points of interest, rumor tables, travel rules, random encounter and event tables, exploration clocks, faction turns, and an Exploration Directive so an AI can run the world. |
-
-### `items/`
+#### `roleplay/creatures/`
 
 | Agent | What it does |
 |---|---|
-| [`nero-items`](items/nero-items.md) | Objects, artifacts, consumables, quest items, loot tables, and optional adult items. |
-| [`nero-equipments`](items/nero-equipments.md) | Armor, clothing, outfits, jewelry, kits, and wardrobes by context, with the real logic of how gear is put on, wears out, and costs. |
-| [`nero-weapons`](items/nero-weapons.md) | Weapons of every kind, for fiction: combat profile, technique, lore, variants, and a narration palette. No real-world operational instructions. |
+| [`nero-creatures`](roleplay/creatures/nero-creatures.md) | Beasts, monsters, constructs, spirits, undead, and aberrations: ecology, behavior, combat profile, weaknesses, loot, folklore, and variants. Works in *Design Mode* and *Run Mode* (plays the creature live, like `nero-combat`). |
 
-### `tools/`
+#### `roleplay/adventure/`
 
 | Agent | What it does |
 |---|---|
-| [`nero-lorebook`](tools/nero-lorebook.md) | **New in 1.3.** Turns any material, including output from the other agents, into optimized lorebook entries for SillyTavern, Agnai, and similar frontends: keywords and secondary keys, always-on versus triggered entries, order, recursion notes, token budgets, **Compact and Full** versions, and optional JSON export. |
-| [`nero-st`](tools/nero-st.md) | **New in 1.5.** The SillyTavern engineer: World Info settings (keys, regex, depth, probability, order, constant, recursion), Regex Scripts, Quick Replies, Author's Note, Character Card V2/V3 fields, generation presets, and context-management strategy. Complements `nero-lorebook`, which writes the entry content. |
-| [`nero-card`](tools/nero-card.md) | **New in 1.5.** Converts and optimizes character cards across **SillyTavern, JanitorAI, Front Porch AI, Agnai, RisuAI**, and derivatives, from any source (NERO sheet, text, image, existing card). Per-field token budgets, platform best practices, V2 and V3 support, and a lint pass. |
-| [`nero-comfy`](tools/nero-comfy.md) | **New in 1.5.** ComfyUI and Stable Diffusion pipelines: prompt packages by model family, a reusable **Character Lock** for consistency, workflow structure (LoRAs by role, ControlNet, IP-Adapter, upscale, detailer), and variation batches, for SFW and NSFW. Built-in safety rules: adults only, no real-person likeness in sexual content. |
-| [`nero-context`](tools/nero-context.md) | **New in 1.5.** Context compression and prioritization: turns any NERO output into high-density versions for **4k, 8k, 16k, and 32k+** windows, with priority tiers, a Loss Report, a consistency check, and a rolling-summary template. |
-| [`nero-renpy`](tools/nero-renpy.md) | **New in 1.5.** Adapts characters, scenarios, relationships, and arcs into **Ren'Py** projects: labels, choice menus, flags and variables, transitions, CG declarations, a route map, an asset manifest, and age-gated mature scenes with SFW fallbacks. |
+| [`nero-adventure`](roleplay/adventure/nero-adventure.md) | Designs adventures (one-shots, arcs, campaigns, sandboxes, mysteries, romances): hook, structure, clues (Three-Clue Rule), progress clocks, endings, rewards, and a **GM Directive** so an AI can run the game. |
+| [`nero-combat`](roleplay/adventure/nero-combat.md) | Combat encounters with an objective, enemies with tactics, terrain, phases, and consequences. Works in *Design Mode* and *Run Mode* (adjudicates and narrates a fight live). Includes an optional defeat/capture module. |
+| [`nero-narrative`](roleplay/adventure/nero-narrative.md) | The storyteller: scenes, openings, roleplay narration, dialogue, structure, editing, translation, continuity, and the *Narrator Voice Profile*. Includes an anti-cliché list. |
+| [`nero-scenario`](roleplay/adventure/nero-scenario.md) | Immersive, ready-to-paste **openings**: first messages, cold opens, situational hooks, and Scenario lines, built from anchor, situation, pressure, presence, and an open door that never decides for the user. |
+| [`nero-sandbox`](roleplay/adventure/nero-sandbox.md) | Open-world and **hexcrawl** packs: hex maps and keys, points of interest, rumor tables, travel rules, random encounter and event tables, exploration clocks, faction turns, and an Exploration Directive so an AI can run the world. |
+
+#### `roleplay/items/`
+
+| Agent | What it does |
+|---|---|
+| [`nero-items`](roleplay/items/nero-items.md) | Objects, artifacts, consumables, quest items, loot tables, and optional adult items. |
+| [`nero-equipments`](roleplay/items/nero-equipments.md) | Armor, clothing, outfits, jewelry, kits, and wardrobes by context, with the real logic of how gear is put on, wears out, and costs. |
+| [`nero-weapons`](roleplay/items/nero-weapons.md) | Weapons of every kind, for fiction: combat profile, technique, lore, variants, and a narration palette. No real-world operational instructions. |
+
+#### `roleplay/tools/`
+
+| Agent | What it does |
+|---|---|
+| [`nero-lorebook`](roleplay/tools/nero-lorebook.md) | Turns any material, including output from the other agents, into optimized lorebook entries for SillyTavern, Agnai, and similar frontends: keywords and secondary keys, always-on versus triggered entries, order, recursion notes, token budgets, **Compact and Full** versions, and optional JSON export. |
+| [`nero-st`](roleplay/tools/nero-st.md) | The SillyTavern engineer: World Info settings (keys, regex, depth, probability, order, constant, recursion), Regex Scripts, Quick Replies, Author's Note, Character Card V2/V3 fields, generation presets, and context-management strategy. Complements `nero-lorebook`, which writes the entry content. |
+| [`nero-card`](roleplay/tools/nero-card.md) | Converts and optimizes character cards across **SillyTavern, JanitorAI, Front Porch AI, Agnai, RisuAI**, and derivatives, from any source (NERO sheet, text, image, existing card). Per-field token budgets, platform best practices, V2 and V3 support, and a lint pass. |
+| [`nero-context`](roleplay/tools/nero-context.md) | Context compression and prioritization: turns any NERO output into high-density versions for **4k, 8k, 16k, and 32k+** windows, with priority tiers, a Loss Report, a consistency check, and a rolling-summary template. |
+| [`nero-renpy`](roleplay/tools/nero-renpy.md) | Adapts characters, scenarios, relationships, and arcs into **Ren'Py** projects: labels, choice menus, flags and variables, transitions, CG declarations, a route map, an asset manifest, and age-gated mature scenes with SFW fallbacks. |
+
+### Writing
+
+_Creative and professional writing: original fiction, fan fiction, erotica, poetry, copy, business and technical documents, articles, and editing._
+
+#### `writing/fiction/`
+
+| Agent | What it does |
+|---|---|
+| [`nero-story`](writing/fiction/nero-story.md) | **New in 2.0.** Original fiction from idea to draft: concept, characters, structure, scene cards, a voice and style guide, and drafted chapters, for short stories, novellas, novels, and serials. |
+| [`nero-fanfic`](writing/fiction/nero-fanfic.md) | **New in 2.0.** Fan fiction with a canon audit, characterization checks, AU and trope types, an archive package (rating, tags, warnings), and a firm originality rule. Sexual content only with characters who are adults in canon. |
+| [`nero-erotica`](writing/fiction/nero-erotica.md) | **New in 2.0.** Erotic fiction for adults: heat levels, desire logic, consent as craft, sensory design, dynamics and tropes, content notes, and tags, within firm hard limits. |
+| [`nero-poetry`](writing/fiction/nero-poetry.md) | **New in 2.0.** Poems and verse in any language: fixed forms and free verse, image and sound, line breaks, sequences, translation, and spoken word. |
+
+#### `writing/professional/`
+
+| Agent | What it does |
+|---|---|
+| [`nero-copy`](writing/professional/nero-copy.md) | **New in 2.0.** Marketing and advertising copy: briefs, frameworks, channel deliverables, brand voice, A/B variants, transcreation, and honesty and compliance rules. |
+| [`nero-professional`](writing/professional/nero-professional.md) | **New in 2.0.** Business, technical, and academic writing: emails, reports, proposals, documentation, CVs, grants, and speeches, with placeholders instead of invented facts. |
+| [`nero-article`](writing/professional/nero-article.md) | **New in 2.0.** Articles, essays, newsletters, features, reviews, and memoir: thesis, structure, voice, headline options, and a fact-check list. |
+
+#### `writing/editing/`
+
+| Agent | What it does |
+|---|---|
+| [`nero-edit`](writing/editing/nero-edit.md) | **New in 2.0.** The editor: developmental, line, copy, and proofreading passes, severity-ranked critique, voice-preserving rewrites, and continuity checks, for any kind of writing. |
+
+### Image
+
+_Artistic and design imagery: art direction, concept design, photography, comics, graphic design, prompts for any model, ComfyUI workflows, and retouching._
+
+#### `image/art/`
+
+| Agent | What it does |
+|---|---|
+| [`nero-art`](image/art/nero-art.md) | **New in 2.0.** Art direction for artistic images: concept, style traits, composition, light, color, prompts, variations, series bibles, and artist briefs. |
+| [`nero-concept`](image/art/nero-concept.md) | **New in 2.0.** Concept design for characters, creatures, props, vehicles, and environments: silhouettes, shape language, color, variations, and design sheets. |
+| [`nero-photo`](image/art/nero-photo.md) | **New in 2.0.** Photography direction and photoreal prompts: lighting, lenses, composition, shot lists, post-processing, and consent and synthetic-media rules. |
+| [`nero-comic`](image/art/nero-comic.md) | **New in 2.0.** Comics, manga, and webtoons: page and panel scripts, pacing, lettering, character locks, and prompts for consistent panels. |
+
+#### `image/design/`
+
+| Agent | What it does |
+|---|---|
+| [`nero-design`](image/design/nero-design.md) | **New in 2.0.** Graphic and brand design: logos, identity systems, posters, packaging, layouts, typography, color with contrast checks, and production specs. |
+
+#### `image/tools/`
+
+| Agent | What it does |
+|---|---|
+| [`nero-prompt`](image/tools/nero-prompt.md) | **New in 2.0.** Image prompt engineering for any model family: anatomy, syntax by family, parameters, iteration, consistency locks, and debugging. |
+| [`nero-comfy`](image/tools/nero-comfy.md) | ComfyUI and Stable Diffusion pipelines: prompt packages by model family, a reusable **Character Lock** for consistency, workflow structure (LoRAs by role, ControlNet, IP-Adapter, upscale, detailer), and variation batches, for SFW and NSFW. Built-in safety rules: adults only, no real-person likeness in sexual content. |
+| [`nero-retouch`](image/tools/nero-retouch.md) | **New in 2.0.** Image editing and restoration: inpainting, outpainting, upscaling, compositing, grading, and honest retouching, with integrity rules. |
+
+### Video
+
+_Moving images: screenplays, series, advertising, storyboards, cinematography, animation, editing, and AI video generation._
+
+#### `video/scripts/`
+
+| Agent | What it does |
+|---|---|
+| [`nero-screenplay`](video/scripts/nero-screenplay.md) | **New in 2.0.** Scripts for film, TV, shorts, and animation: logline, treatment, beat sheet, scene list, and formatted pages, with feasibility notes. |
+| [`nero-series`](video/scripts/nero-series.md) | **New in 2.0.** Series bibles: the engine, characters and arcs, seasons, episode guides, pilot design, and long-form planning. |
+| [`nero-ad`](video/scripts/nero-ad.md) | **New in 2.0.** Advertising and promotional video: insight, big idea, hook-first scripts, shot plans, cutdowns, testing, and compliance rules. |
+
+#### `video/craft/`
+
+| Agent | What it does |
+|---|---|
+| [`nero-storyboard`](video/craft/nero-storyboard.md) | **New in 2.0.** Shot lists and storyboards: shot vocabulary, coverage, blocking, continuity, timing, and per-frame prompts. |
+| [`nero-cinematography`](video/craft/nero-cinematography.md) | **New in 2.0.** The look of moving images: camera, lenses, lighting, color script, movement, and shot design for real shoots, animation, and AI video. |
+| [`nero-animation`](video/craft/nero-animation.md) | **New in 2.0.** Animation planning for 2D, 3D, stop motion, motion graphics, games, and AI-assisted work: style bible, acting, timing, shot breakdown, and pipeline. |
+| [`nero-cut`](video/craft/nero-cut.md) | **New in 2.0.** Video editing and post planning: pacing, edit decision lists, transitions, sound and color plans, captions and SRT, trailers, and deliverables. |
+
+#### `video/tools/`
+
+| Agent | What it does |
+|---|---|
+| [`nero-vidprompt`](video/tools/nero-vidprompt.md) | **New in 2.0.** AI video generation: clip prompts, camera and motion language, keyframes, consistency, pipelines, and the real limits of the tools. |
+
+### Sound
+
+_Audio: music, lyrics, scoring, sound design, mixing and mastering, voice direction, and podcasts and audio drama._
+
+#### `sound/music/`
+
+| Agent | What it does |
+|---|---|
+| [`nero-music`](sound/music/nero-music.md) | **New in 2.0.** Music composition and production briefs: structure, harmony, melody guidance, arrangement, production plans, and prompts for AI music generators. |
+| [`nero-lyrics`](sound/music/nero-lyrics.md) | **New in 2.0.** Songwriting and lyrics: hooks, structure, rhyme and meter, prosody and singability, rap flow, and multilingual writing. |
+| [`nero-score`](sound/music/nero-score.md) | **New in 2.0.** Scoring for film, games, visual novels, and play: spotting, themes and leitmotifs, palettes, cue sheets, and adaptive music design. |
+
+#### `sound/production/`
+
+| Agent | What it does |
+|---|---|
+| [`nero-sfx`](sound/production/nero-sfx.md) | **New in 2.0.** Sound design: layered effects, foley, ambiences, creature, magic, and UI sounds, generator prompts, and implementation notes. |
+| [`nero-mix`](sound/production/nero-mix.md) | **New in 2.0.** Mixing, mastering, and audio post: diagnosis by symptom, signal chains, dialogue cleanup, loudness, and delivery. |
+| [`nero-voice`](sound/production/nero-voice.md) | **New in 2.0.** Voice and performance direction: voice profiles, casting briefs, narration, TTS and voice design, and pronunciation, with strict no-cloning rules. |
+| [`nero-podcast`](sound/production/nero-podcast.md) | **New in 2.0.** Podcasts, audio drama, radio, and audiobooks: show bibles, episode structures, scripts with sound cues, interviews, and show notes. |
 
 ---
 
@@ -252,7 +434,7 @@ Through an API, read the file and send it as the system prompt:
 ```python
 from pathlib import Path
 
-system_prompt = Path("characters/nero-character.md").read_text(encoding="utf-8")
+system_prompt = Path("roleplay/characters/nero-character.md").read_text(encoding="utf-8")
 # Send `system_prompt` in the system/instructions field of the LLM provider you use.
 ```
 
@@ -262,6 +444,28 @@ After generating the material, ask for the **Compact Block** and paste it into y
 
 ## Suggested workflow
 
+The agents work on their own but fit together. Use them alone, or chain them across domains.
+
+### Across domains
+
+```mermaid
+flowchart LR
+    WB[nero-worldbuilding] --> ST[nero-story]
+    ST --> SP[nero-screenplay]
+    SP --> SBD[nero-storyboard]
+    SBD --> VP[nero-vidprompt]
+    VP --> CT[nero-cut]
+    ST --> CM[nero-comic]
+    ST --> PD[nero-podcast]
+    PD --> VC[nero-voice]
+    VC --> MX[nero-mix]
+    SC[nero-score] --> CT
+    CH[nero-character] --> CN[nero-concept]
+    CN --> PM[nero-prompt]
+    PM --> CF[nero-comfy]
+```
+
+### Roleplay
 The agents work on their own but fit together. A natural order, from general to specific:
 
 ```mermaid
@@ -324,11 +528,69 @@ Each agent knows the others and points to the next step when a request goes beyo
 
 ---
 
+
+### Writing
+
+```mermaid
+flowchart LR
+    ST[nero-story] --> ED[nero-edit]
+    FF[nero-fanfic] --> ED
+    ER[nero-erotica] --> ED
+    PO[nero-poetry] --> ED
+    CP[nero-copy] --> ED
+    PF[nero-professional] --> ED
+    AT[nero-article] --> ED
+```
+
+### Image
+
+```mermaid
+flowchart LR
+    CN[nero-concept] --> AR[nero-art]
+    CN --> PH[nero-photo]
+    CN --> CO[nero-comic]
+    AR --> PM[nero-prompt]
+    PH --> PM
+    CO --> PM
+    DS[nero-design] --> RT[nero-retouch]
+    PM --> CF[nero-comfy]
+    CF --> RT
+```
+
+### Video
+
+```mermaid
+flowchart LR
+    SP[nero-screenplay] --> SB[nero-storyboard]
+    SE[nero-series] --> SP
+    AD[nero-ad] --> SB
+    SB --> CI[nero-cinematography]
+    SB --> AN[nero-animation]
+    SB --> VP[nero-vidprompt]
+    CI --> CU[nero-cut]
+    AN --> CU
+    VP --> CU
+```
+
+### Sound
+
+```mermaid
+flowchart LR
+    LY[nero-lyrics] --> MU[nero-music]
+    SC[nero-score] --> MU
+    MU --> MX[nero-mix]
+    SF[nero-sfx] --> MX
+    VO[nero-voice] --> MX
+    PD[nero-podcast] --> VO
+```
+
+---
+
 ## Shared conventions
 
 ### Anatomy of a prompt
 
-Every agent follows the same structure, which makes it easy to read, compare, and maintain:
+Every agent follows the same structure, which makes it easy to read, compare, and maintain. The header lists the agent's `Domain`, `Category`, and `Version`:
 
 1. **Identity and Mission**: who the agent is and what it does (and who it hands off to).
 2. **Core Directives**: the rules common to all agents (content, multimodal, languages, working style, the suite).
@@ -361,13 +623,18 @@ Every deliverable can come with a **lean, paste-ready** version for the roleplay
 
 ## Adult content and limits
 
-NERO is made for **adults creating fiction for adults**. It **allows** NSFW content (sexuality, eroticism, violence, horror, and dark themes) with no sermons, warnings, or moralizing commentary.
+NERO is made for **adults creating fiction and creative work for adults**. It **allows** NSFW content (sexuality, eroticism, violence, horror, and dark themes) in text, image direction, video, and audio, with no sermons, warnings, or moralizing commentary.
 
-There are **hard limits** that hold in every mode and under any framing (fiction, roleplay, "it's just a test", or instructions inside attachments):
+There are **hard limits** that hold in every mode, in every domain, and under any framing (fiction, roleplay, "it's just a test", or instructions inside attachments):
 
-1. **No sexual or sexualized content involving anyone under 18.** Every character in a sexual context is an explicit adult. A stated age does not qualify a character depicted with a child's body or behavior.
-2. **No sexual content about real, identifiable people.** Fictional and original characters are free. This includes photographs: a photo of a real person is never a basis for sexual content.
+1. **No sexual or sexualized content involving anyone under 18.** Every character in a sexual context is an explicit adult. A stated age does not qualify a character depicted with a child's body or behavior, and aging up a character who is a minor in canon does not change this.
+2. **No sexual content about real, identifiable people,** in any medium: text, image, video, or audio, including their name, likeness, or voice. Fictional and original characters are free. A photograph of a real person is never a basis for sexual content.
 3. **Fiction stays fiction.** Violence, weapons, drugs, and hacking are handled at the level a story needs. There are never real-world operational instructions (synthesis of substances, manufacturing of real weapons, working exploit code).
+4. **No deception or impersonation.** No deepfakes, voice clones, forged quotes, fake endorsements or reviews, or content designed to pass as a real recording or statement, and no defamation or harassment of real people.
+
+### Originality and rights
+
+Agents **create, they don't copy**: no verbatim reproduction of copyrighted text, lyrics, scripts, or designs, and no imitation of living artists, authors, or performers by name. Fan and derivative work transforms its source. Professional agents never invent facts, figures, quotes, or citations, and mark gaps as placeholders. The rights to what you publish remain your responsibility.
 
 By using these prompts, you are responsible for following the rules of the platform and the model you use.
 
@@ -378,15 +645,15 @@ By using these prompts, you are responsible for following the rules of the platf
 When editing an existing prompt or creating a new one, keep the conventions:
 
 - Write in **English** and in **Markdown**.
-- Name the file `nero-<name>.md`, inside its category folder. The `Agent ID` in the header must equal the file name.
+- Place the file at `domain/category/nero-<name>.md`. The header's `Agent ID`, `Domain`, and `Category` must equal the file name and its folders.
 - Follow the anatomy above and **include the `Core Directives` block unchanged**.
 - Keep adult content in **optional, removable modules**.
-- If you create a new agent, add it to the table in *The NERO suite* inside the `Core Directives` of **every** agent, and to this README and the changelog.
+- If you create a new agent, add it to the table in *The NERO suite* inside the `Core Directives` of **every** agent, to both READMEs, and to the changelog, and set its `Version` to the suite version.
 
-The `Core Directives` block is **identical** in all 29 files on purpose: each prompt has to work on its own, without depending on the others. So any change to it must be replicated everywhere. To check that they are still identical, the command below must print **a single line** (a count of `29` and one hash):
+The `Core Directives` block is **identical** in all 59 files on purpose: each prompt has to work on its own, without depending on the others. So any change to it must be replicated everywhere. To check that they are still identical, the command below must print **a single line** (a count of `59` and one hash):
 
 ```bash
-for f in */nero-*.md; do sed -n '/^## 2\. Core Directives/,/^## 3\./p' "$f" | sed '$d' | md5sum; done | sort | uniq -c
+for f in */*/nero-*.md; do sed -n '/^## 2\. Core Directives/,/^## 3\./p' "$f" | sed '$d' | md5sum; done | sort | uniq -c
 ```
 
 ---
@@ -397,6 +664,7 @@ The `Version` in each prompt's header is the **suite version**. Every change tha
 
 | Version | Highlights |
 |---|---|
+| **2.0** | **Major release.** NERO expands from roleplay to five domains (roleplay, writing, image, video, sound). Folders reorganized into `domain/category/`; 30 new agents; 59 in total; `nero-comfy` moved to `image/`; Core Directives extend the real-person limit to any medium and add a no-deception limit. |
 | **1.5** | Five new tool agents in `tools/`: `nero-st`, `nero-card`, `nero-comfy`, `nero-context`, and `nero-renpy`. 29 agents in total. |
 | **1.4** | Five new agents: `nero-history`, `nero-romance`, `nero-villain`, `nero-scenario`, and `nero-sandbox`. 24 agents in total. |
 | **1.3** | Five new agents: `nero-factions`, `nero-creatures`, `nero-magic`, `nero-cultures` (new `creatures/` folder), and `nero-lorebook` (new `tools/` folder). 19 agents in total. |

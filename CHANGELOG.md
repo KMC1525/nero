@@ -2,6 +2,90 @@
 
 All notable changes to NERO are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the version is the **suite version** shown in each prompt's header.
 
+## [2.0] - 2026-11-03
+
+A major release: NERO grows from a roleplay suite into a suite for **creative work with generative AI** in five domains. **File paths changed** (see Migration), and the suite grows from 29 to **59 agents**.
+
+### Changed
+
+- **New proposal.** Besides roleplay, NERO now covers **creative writing** (original, fan fiction, erotica, professional, and more), **image** (artistic and design), **video** (animation, cinema, series, advertising), and **sound** (music, sound effects, voice).
+- **Repository reorganized into five top-level domains:** `roleplay/`, `writing/`, `image/`, `video/`, and `sound/`, each with `category/` subfolders. All 29 existing agents moved to `roleplay/<category>/` (`characters`, `worldbuilding`, `creatures`, `adventure`, `items`, `tools`). The moves were done with `git mv`, so file history is preserved.
+- **`nero-comfy` moved** from `tools/` to `image/tools/`, because it is an image-generation agent. Its hand-offs now include `nero-prompt`, `nero-art`, `nero-retouch`, and `nero-vidprompt`.
+- **Headers:** every prompt now lists its `Domain` and `Category`, which match its folders, and `Version` moved to `2.0` in all 59 files.
+- **Core Directives (identical in all 59 files), updated for the new media:**
+  - Hard limit 2 now covers any medium (text, image, video, audio) and a person's name, likeness, or voice.
+  - New hard limit 4: **no deception or impersonation** (deepfakes, voice clones, forged quotes, fake endorsements or reviews, defamation, harassment).
+  - The audio rule adds: never imitate, clone, or identify a real person's voice.
+  - New working-style rule: **create, don't copy** (no verbatim copyrighted text, lyrics, scripts, or designs; no imitation of living artists, authors, or performers by name).
+  - The Compact Block now targets any destination (roleplay prompt, card, lorebook, image/video/audio generator prompt, or writing bible).
+  - *The NERO suite* section is regrouped by `domain / category` instead of one row per agent, so every prompt knows all 59 agents without growing unwieldy.
+- **Cross-domain hand-offs** added to existing agents, for example `nero-narrative` to `nero-story`, `nero-character` to `nero-concept` and `nero-voice`, `nero-creatures` to `nero-sfx`, and `nero-renpy` to `nero-music`, `nero-sfx`, `nero-voice`, and `nero-art`.
+- **`README.md` and `README.pt-BR.md` rewritten** for the five domains: new proposal, a "Which agent should I use?" table, the full repository tree, agent tables per domain and category, workflow diagrams per domain plus a cross-domain pipeline, four hard limits, an originality-and-rights section, and updated contributing rules.
+- The consistency check command now uses `*/*/nero-*.md`.
+
+### Added
+
+Thirty new agents, each following the suite pattern (Core Directives, Quick/Standard/Deep depths, Compact Block, multimodal input and output, SFW/NSFW/Auto modes, removable adult modules, and hand-offs).
+
+**`writing/`** (8)
+- `writing/fiction/nero-story`: original fiction from idea to draft (concept, structure, scene cards, voice guide, chapters, series bible).
+- `writing/fiction/nero-fanfic`: fan fiction with a canon audit, AU and trope types, an archive package, and firm limits.
+- `writing/fiction/nero-erotica`: erotic fiction for adults with heat levels, consent as craft, content notes, and tags.
+- `writing/fiction/nero-poetry`: poems and verse in any language, forms, sound, sequences, and translation.
+- `writing/professional/nero-copy`: marketing and advertising copy with frameworks, variants, and compliance rules.
+- `writing/professional/nero-professional`: business, technical, and academic documents, with placeholders instead of invented facts.
+- `writing/professional/nero-article`: articles, essays, newsletters, features, and memoir, with a fact-check list.
+- `writing/editing/nero-edit`: developmental, line, copy, and proofreading passes, critique by severity, and voice-preserving rewrites.
+
+**`image/`** (7 new, plus `nero-comfy` moved in)
+- `image/art/nero-art`: art direction for artistic images and artist briefs.
+- `image/art/nero-concept`: concept design sheets for characters, creatures, props, vehicles, and environments.
+- `image/art/nero-photo`: photography direction and photoreal prompts, with consent and synthetic-media rules.
+- `image/art/nero-comic`: comics, manga, and webtoons, with panel scripts and consistency locks.
+- `image/design/nero-design`: graphic and brand design (logos, identity, layout, typography, contrast-checked color).
+- `image/tools/nero-prompt`: image prompt engineering for any model family.
+- `image/tools/nero-retouch`: image editing, restoration, and compositing, with integrity rules.
+
+**`video/`** (8)
+- `video/scripts/nero-screenplay`: scripts for film, TV, shorts, and animation.
+- `video/scripts/nero-series`: series bibles, seasons, and episode guides.
+- `video/scripts/nero-ad`: advertising and promotional video, with cutdowns and compliance rules.
+- `video/craft/nero-storyboard`: shot lists and storyboards.
+- `video/craft/nero-cinematography`: camera, lenses, lighting, color script, and movement.
+- `video/craft/nero-animation`: animation planning for 2D, 3D, stop motion, motion graphics, games, and AI-assisted work.
+- `video/craft/nero-cut`: editing and post planning, with captions and SRT.
+- `video/tools/nero-vidprompt`: AI video generation prompts and pipelines.
+
+**`sound/`** (7)
+- `sound/music/nero-music`: composition and production briefs, and prompts for AI music generators.
+- `sound/music/nero-lyrics`: songwriting and lyrics.
+- `sound/music/nero-score`: scoring for film, games, visual novels, and play, including adaptive music.
+- `sound/production/nero-sfx`: sound design, foley, and ambience.
+- `sound/production/nero-mix`: mixing, mastering, and audio post.
+- `sound/production/nero-voice`: voice and performance direction, TTS and voice design.
+- `sound/production/nero-podcast`: podcasts, audio drama, radio, and audiobooks.
+
+### Safety
+
+Each new agent applies the Core limits to its medium:
+
+- **Writing:** no verbatim copying of copyrighted text; `nero-fanfic` and `nero-erotica` sexualize only characters who are adults in canon (aging up a minor does not change this) and write no sexual or defamatory content about real people; `nero-copy`, `nero-professional`, and `nero-article` never invent facts, statistics, quotes, citations, testimonials, or credentials, and mark gaps as placeholders; none gives legal, medical, or financial advice.
+- **Image:** adults only in suggestive or NSFW prompts, with child-related terms in negative prompts; no sexual or deceptive imagery of real people; no "undressing" edits of real people's photos (`nero-retouch`); styles are described by their traits and not by living artists' names; synthetic photoreal images are labeled.
+- **Video:** no deepfakes or deceptive editing of real people's footage or statements; no fake testimonials or endorsements in advertising; AI-generated video is labeled where it could pass as real.
+- **Sound:** no voice cloning or imitation of real people, and no audio presented as the work of a real artist; no sexual audio of real people; original melodies and lyrics only; diss tracks and satire may not defame or harass real, named people.
+- Option names, tool syntax, loudness targets, and platform specs are marked as version-dependent in the agents where they appear, because they change quickly and could not be verified against official documentation from the build environment.
+
+### Migration
+
+Paths changed in this release. If you copy prompts by path, update them:
+
+| Before (1.x) | After (2.0) |
+|---|---|
+| `characters/`, `worldbuilding/`, `creatures/`, `adventure/`, `items/`, `tools/` | `roleplay/characters/`, `roleplay/worldbuilding/`, `roleplay/creatures/`, `roleplay/adventure/`, `roleplay/items/`, `roleplay/tools/` |
+| `tools/nero-comfy.md` | `image/tools/nero-comfy.md` |
+
+File names, agent IDs, and the content of the roleplay agents are unchanged apart from the header fields, the Core Directives, and the extra hand-offs listed above.
+
 ## [1.5] - 2026-11-03
 
 ### Added
@@ -118,6 +202,7 @@ Five new agents, each following the suite pattern (Core Directives, Quick/Standa
 - A shared Core Directives block kept identical across agents, with three hard limits (no sexual content involving minors, none about real people, no real-world operational instructions).
 - Project `README.md` in Portuguese.
 
+[2.0]: https://github.com/KMC1525/nero/releases/tag/v2.0
 [1.5]: https://github.com/KMC1525/nero/releases/tag/v1.5
 [1.4]: https://github.com/KMC1525/nero/releases/tag/v1.4
 [1.3]: https://github.com/KMC1525/nero/releases/tag/v1.3
