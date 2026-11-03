@@ -2,6 +2,25 @@
 
 All notable changes to NERO are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the version is the **suite version** shown in each prompt's header.
 
+## [1.3] - 2026-11-03
+
+### Added
+
+Five new agents, each following the suite pattern (Core Directives, Quick/Standard/Deep depths, Compact Block, multimodal input and output, SFW/NSFW/Auto modes, removable adult modules, and hand-offs). The suite grows from 14 to **19 agents** and from four to six folders.
+
+- **`nero-factions`** (`worldbuilding/nero-factions.md`): guilds, noble houses, cults, corporations, gangs, orders, secret societies, and governments. Covers identity, public versus true goals, hierarchy and real power, resources and vulnerabilities, goals and methods, relations with other factions, propaganda, recruitment, internal secrets (a secrets ledger), key figures, and progress clocks. Includes a **Mermaid relations diagram** (open and secret relations) and an optional org chart.
+- **`nero-magic`** (`worldbuilding/nero-magic.md`): magic, superpowers, mystic arts, divine power, psionics, and arcane technology. Defines source, laws, costs, limits and failure tables, schools and traditions, progression with a power ceiling, access, practice and sensory signature, risks, the culture and economy around power, sample techniques, and an optional intimate-power module. Supports hard and soft systems.
+- **`nero-cultures`** (`worldbuilding/nero-cultures.md`): peoples and societies from the inside. Covers values and worldview, customs and etiquette, taboos and law, festivals and rites, family and kinship, a language sketch with naming tables, aesthetics, the sacred, the body, outsiders, internal diversity, an optional intimacy-and-sexuality module, and a "Playing a Member" guide. Includes explicit guidance against stereotypes.
+- **`nero-creatures`** (new `creatures/` folder): beasts, monsters, fantastical animals, constructs, spirits, undead, and aberrations. Covers ecology, behavior, a combat profile that shares the generic stat block of `nero-combat`, weaknesses and counters, loot and harvest, folklore (belief versus truth), variants, and encounter tables. Works in **Design Mode** and **Run Mode** (plays the creature live). The optional mature module is limited to sapient adults.
+- **`nero-lorebook`** (new `tools/` folder): turns any material, including output from the other agents, into optimized lorebook entries for SillyTavern, Agnai, and similar frontends. Prioritizes tokens, keywords and secondary keys, trigger planning, order, recursion, and budget. Every entry comes in **Compact** and **Full** versions, with an Activation Plan, a budget summary, and optional JSON export (Character Card V2 `character_book` or a generic array).
+
+### Changed
+
+- The *NERO suite* table inside the Core Directives of **every agent** now lists the five new agents. Core Directives remain identical in all 19 files.
+- The `Version` field in every prompt header moved from `1.2` to `1.3`.
+- Hand-offs: `nero-worldbuilding`, `nero-multi-character`, `nero-adventure`, `nero-combat`, and `nero-character` now point to the relevant new agents, and each new agent hands off to all five of them (and to the rest of the suite where relevant).
+- `README.md` and `README.pt-BR.md` updated: agent count (14 to 19), repository tree, agent tables, the workflow diagram, and the version table.
+
 ## [1.2] - 2026-11-03
 
 ### Added
@@ -56,6 +75,7 @@ All notable changes to NERO are recorded here. The format follows [Keep a Change
 - A shared Core Directives block kept identical across agents, with three hard limits (no sexual content involving minors, none about real people, no real-world operational instructions).
 - Project `README.md` in Portuguese.
 
+[1.3]: https://github.com/KMC1525/nero/releases/tag/v1.3
 [1.2]: https://github.com/KMC1525/nero/releases/tag/v1.2
 [1.1]: https://github.com/KMC1525/nero/releases/tag/v1.1
 [1.0]: https://github.com/KMC1525/nero/commit/76056bac08a9b40875bd651f1afe80284abe940a

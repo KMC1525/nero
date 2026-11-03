@@ -2,7 +2,7 @@
 
 > Um conjunto de **system prompts de agentes de IA** para o desenvolvimento de **personagens**, **mundos** e **aventuras** de roleplay com IA generativa.
 
-**Versão 1.2** · [Licença MIT](LICENSE) · [Changelog](CHANGELOG.md) · [English](README.md)
+**Versão 1.3** · [Licença MIT](LICENSE) · [Changelog](CHANGELOG.md) · [English](README.md)
 
 ---
 
@@ -25,7 +25,7 @@
 
 ## O que é o NERO
 
-O NERO é uma coleção de **14 system prompts especializados**, escritos em Markdown. Cada arquivo é um **agente independente**: você o cola como system prompt em um modelo de IA e ele passa a atuar como especialista em criar um tipo de material para roleplay, seja um personagem, um elenco, um mundo, uma cidade, uma sala, uma economia, uma aventura, uma luta ou uma espada lendária.
+O NERO é uma coleção de **19 system prompts especializados**, escritos em Markdown. Cada arquivo é um **agente independente**: você o cola como system prompt em um modelo de IA e ele passa a atuar como especialista em criar um tipo de material para roleplay, seja um personagem, um elenco, um mundo, uma cidade, uma sala, uma economia, uma aventura, uma luta ou uma espada lendária.
 
 Não é um aplicativo nem uma biblioteca. É **conteúdo**: prompts prontos para usar em qualquer plataforma ou modelo que aceite um system prompt (aplicativos de chat, frontends de roleplay, APIs, GPTs e projetos personalizados).
 
@@ -64,15 +64,22 @@ nero/
 │   ├── nero-places.md
 │   ├── nero-rooms.md
 │   ├── nero-building.md
-│   └── nero-economy.md
+│   ├── nero-economy.md
+│   ├── nero-factions.md
+│   ├── nero-magic.md
+│   └── nero-cultures.md
+├── creatures/
+│   └── nero-creatures.md
 ├── adventure/
 │   ├── nero-adventure.md
 │   ├── nero-combat.md
 │   └── nero-narrative.md
-└── items/
-    ├── nero-items.md
-    ├── nero-equipments.md
-    └── nero-weapons.md
+├── items/
+│   ├── nero-items.md
+│   ├── nero-equipments.md
+│   └── nero-weapons.md
+└── tools/
+    └── nero-lorebook.md
 ```
 
 ---
@@ -96,6 +103,15 @@ nero/
 | [`nero-rooms`](worldbuilding/nero-rooms.md) | Ambientes internos: layout, sentidos, mobília, *hotspots* interativos, segredos, variações de estado, notas táticas, *Scene Setter* e espaços íntimos (opcional). |
 | [`nero-building`](worldbuilding/nero-building.md) | Construções: arquitetura, plantas, sistemas (água, luz, esgoto), moradores, segurança, segredos e locais de entretenimento adulto (opcional). |
 | [`nero-economy`](worldbuilding/nero-economy.md) | Moedas, preços, salários, comércio, impostos, guildas, mercado paralelo e balanceamento de recompensas, tudo ancorado em uma unidade de poder de compra. |
+| [`nero-factions`](worldbuilding/nero-factions.md) | **Novo na 1.3.** Guildas, casas nobres, cultos, corporações, gangues, ordens e outras organizações: hierarquia e poder real, recursos, objetivos e métodos, propaganda, recrutamento, segredos internos e um **diagrama Mermaid de relações**. |
+| [`nero-magic`](worldbuilding/nero-magic.md) | **Novo na 1.3.** Sistemas de poder: magia, superpoderes, artes místicas, dons divinos, psiquismo e tecnologia arcana. Fonte, leis, custos, limites, escolas e tradições, progressão, riscos e a cultura em torno do poder. |
+| [`nero-cultures`](worldbuilding/nero-cultures.md) | **Novo na 1.3.** Povos e sociedades por dentro: valores, costumes, tabus, festivais, família, idioma, estética, o sagrado e o corpo, com um guia "Playing a Member" para narradores. |
+
+### `creatures/` — criaturas
+
+| Agente | O que faz |
+|---|---|
+| [`nero-creatures`](creatures/nero-creatures.md) | **Novo na 1.3.** Feras, monstros, construtos, espíritos, mortos-vivos e aberrações: ecologia, comportamento, perfil de combate, fraquezas, loot, folclore e variantes. Funciona em *Design Mode* e em *Run Mode* (interpreta a criatura ao vivo, como o `nero-combat`). |
 
 ### `adventure/` — aventura
 
@@ -112,6 +128,12 @@ nero/
 | [`nero-items`](items/nero-items.md) | Objetos, artefatos, consumíveis, itens de missão, tabelas de loot e itens adultos (opcional). |
 | [`nero-equipments`](items/nero-equipments.md) | Armaduras, roupas, trajes, joias, kits e guarda-roupas por contexto, com a lógica real de como se veste, desgasta e custa. |
 | [`nero-weapons`](items/nero-weapons.md) | Armas de todos os tipos para ficção: perfil de combate, técnica, lore, variantes e paleta de narração. Sem instruções operacionais do mundo real. |
+
+### `tools/` — ferramentas
+
+| Agente | O que faz |
+|---|---|
+| [`nero-lorebook`](tools/nero-lorebook.md) | **Novo na 1.3.** Transforma qualquer material, inclusive a saída dos outros agentes, em entradas de lorebook otimizadas para SillyTavern, Agnai e frontends parecidos: keywords e chaves secundárias, entradas sempre ativas versus acionadas, ordem, notas de recursão, orçamento de tokens, versões **Compact e Full** e exportação JSON opcional. |
 
 ---
 
@@ -238,6 +260,18 @@ flowchart LR
     C --> A
     A --> X[nero-combat]
     A --> N[nero-narrative]
+    W --> F[nero-factions]
+    W --> MG[nero-magic]
+    W --> CU[nero-cultures]
+    CU --> C
+    CU --> F
+    MG --> C
+    F --> A
+    MG --> A
+    P --> CR[nero-creatures]
+    CR --> X
+    CR --> A
+    ANY[qualquer saída NERO] -. otimizar .-> LB[nero-lorebook]
 ```
 
 Cada agente conhece os outros e indica o próximo passo quando um pedido foge do seu escopo. Os materiais se ligam por **referências cruzadas** no formato `[[Tipo: Nome]]`, por exemplo `[[Place: Saltmarsh Quay]]`, `[[Character: Mira Voss]]` ou `[[Item: Ashen Lantern]]`.
@@ -303,7 +337,7 @@ Ao editar um prompt existente ou criar um novo, mantenha as convenções:
 - Mantenha o conteúdo adulto em **módulos opcionais e removíveis**.
 - Se criar um agente novo, adicione-o à tabela da seção *The NERO suite* dentro do `Core Directives` de **todos** os agentes, a este README e ao changelog.
 
-O bloco `Core Directives` é **idêntico** nos 14 arquivos de propósito: cada prompt precisa funcionar sozinho, sem depender dos outros. Por isso, qualquer mudança nele deve ser replicada em todos. Para conferir se continuam idênticos, o comando abaixo deve imprimir **uma única linha** (contagem `14` e um só hash):
+O bloco `Core Directives` é **idêntico** nos 19 arquivos de propósito: cada prompt precisa funcionar sozinho, sem depender dos outros. Por isso, qualquer mudança nele deve ser replicada em todos. Para conferir se continuam idênticos, o comando abaixo deve imprimir **uma única linha** (contagem `19` e um só hash):
 
 ```bash
 for f in */nero-*.md; do sed -n '/^## 2\. Core Directives/,/^## 3\./p' "$f" | sed '$d' | md5sum; done | sort | uniq -c
@@ -317,6 +351,7 @@ A `Version` no cabeçalho de cada prompt é a **versão da suíte**. Toda mudan�
 
 | Versão | Destaques |
 |---|---|
+| **1.3** | Cinco novos agentes: `nero-factions`, `nero-creatures`, `nero-magic`, `nero-cultures` (nova pasta `creatures/`) e `nero-lorebook` (nova pasta `tools/`). 19 agentes no total. |
 | **1.2** | O `nero-jps` aceita somente texto (sem imagem) e é totalmente multimodal na entrada (imagens, áudio, vídeo, documentos, cartões existentes), com extras multimodais opcionais. |
 | **1.1** | Novo agente `nero-jps` (cartões de personagem para JanitorAI, Front Porch AI, SillyTavern e derivados); README traduzido para inglês; changelog adicionado. |
 | **1.0** | Primeiro release: 13 agentes em quatro categorias. |
