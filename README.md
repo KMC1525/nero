@@ -2,7 +2,7 @@
 
 > A suite of **AI agent system prompts** for **creative work with generative AI**: **roleplay**, **writing**, **image**, **video**, **sound**, and **games**.
 
-**Version 2.1** · [MIT License](LICENSE) · [Changelog](CHANGELOG.md) · [Português (Brasil)](README.pt-BR.md)
+**Version 2.2** · [MIT License](LICENSE) · [Changelog](CHANGELOG.md) · [Português (Brasil)](README.pt-BR.md)
 
 ---
 
@@ -25,17 +25,17 @@
 
 ## What is NERO
 
-NERO is a collection of **81 specialized system prompts**, written in Markdown, for **creative work with generative AI**. Each file is an **independent agent**: you paste it as the system prompt of an AI model, and it acts as a specialist in one craft: a character, a world, an adventure, a novel, a fan fiction, a piece of ad copy, a logo, a film script, a storyboard, a song, or a mix.
+NERO is a collection of **101 specialized system prompts**, written in Markdown, for **creative work with generative AI**. Each file is an **independent agent**: you paste it as the system prompt of an AI model, and it acts as a specialist in one craft: a character, a world, an adventure, a novel, a fan fiction, a piece of ad copy, a logo, a film script, a storyboard, a song, or a mix.
 
 NERO began as a set of agents for **roleplay**. Since version 2.0 it has grown beyond roleplay, and it now covers six domains:
 
 | Domain | What it covers | Agents |
 |---|---|---|
 | **Roleplay** | Characters, worlds, adventures, items, and the tools that connect them to roleplay platforms (SillyTavern, JanitorAI, and Front Porch AI). | 27 |
-| **Writing** | Creative and professional writing: original fiction, fan fiction, erotica, poetry, copy, business and technical documents, articles, and editing. | 8 |
-| **Image** | Artistic and design imagery: art direction, concept design, photography, comics, graphic design, prompts for any model, ComfyUI workflows, and retouching. | 8 |
-| **Video** | Moving images: screenplays, series, advertising, storyboards, cinematography, animation, editing, and AI video generation. | 8 |
-| **Sound** | Audio: music, lyrics, scoring, sound design, mixing and mastering, voice direction, and podcasts and audio drama. | 7 |
+| **Writing** | Creative and professional writing: original fiction, plotting, humor, fan fiction, erotica, poetry, copy, business and technical documents, books, academic writing, articles, editing, and translation. | 13 |
+| **Image** | Artistic and design imagery: art direction, concept design, photography, comics, pixel art, 3D modeling, avatars, graphic design, UI/UX, infographics, prompts for any model, ComfyUI workflows, and retouching. | 13 |
+| **Video** | Moving images: screenplays, series, documentaries, music videos, short-form video, advertising, storyboards, cinematography, animation, VFX, editing, dubbing, and AI video generation. | 13 |
+| **Sound** | Audio: music, beats, orchestration, music theory, lyrics, scoring, sound design, synthesis, audio branding, mixing and mastering, voice direction, and podcasts and audio drama. | 12 |
 | **Games** | Game creation from concept to release: design, systems, narrative, levels, UI, AI, assets, code, QA, production, localization, publishing, and engines (RPG Maker, Ren'Py, Unreal, Godot, Unity, Construct, web, GameMaker, and more). | 23 |
 
 It is not an application or a library. It is **content**: prompts ready to use on any platform or model that accepts a system prompt (chat apps, roleplay frontends, APIs, custom GPTs, and projects).
@@ -61,6 +61,11 @@ What the agents produce is designed to be **used afterwards**: character cards, 
 | Design a game or write a design document | [`nero-gdd`](games/design/nero-gdd.md), [`nero-mechanics`](games/design/nero-mechanics.md) |
 | Build a game in RPG Maker, Ren'Py, Godot, Unity, Unreal, Construct, GameMaker, or the web | [`nero-rpgmaker`](games/engines/nero-rpgmaker.md), [`nero-renpy`](games/engines/nero-renpy.md), [`nero-godot`](games/engines/nero-godot.md), [`nero-unity`](games/engines/nero-unity.md), [`nero-unreal`](games/engines/nero-unreal.md), [`nero-construct`](games/engines/nero-construct.md), [`nero-gamemaker`](games/engines/nero-gamemaker.md), [`nero-webgame`](games/engines/nero-webgame.md) |
 | Pick an engine, or ship and market a game | [`nero-engine`](games/engines/nero-engine.md), [`nero-launch`](games/production/nero-launch.md) |
+| Plot a story, write comedy, or write a non-fiction or academic book | [`nero-plot`](writing/fiction/nero-plot.md), [`nero-humor`](writing/fiction/nero-humor.md), [`nero-book`](writing/professional/nero-book.md), [`nero-academic`](writing/professional/nero-academic.md) |
+| Translate creative text | [`nero-translate`](writing/editing/nero-translate.md) |
+| Make pixel art, 3D models, avatars, UI/UX designs, or infographics | [`nero-pixel`](image/art/nero-pixel.md), [`nero-modeling`](image/art/nero-modeling.md), [`nero-avatar`](image/art/nero-avatar.md), [`nero-uiux`](image/design/nero-uiux.md), [`nero-infographic`](image/design/nero-infographic.md) |
+| Make a documentary, a music video, short-form videos, VFX, or subtitles and dubbing | [`nero-docu`](video/scripts/nero-docu.md), [`nero-musicvideo`](video/scripts/nero-musicvideo.md), [`nero-shorts`](video/scripts/nero-shorts.md), [`nero-vfx`](video/craft/nero-vfx.md), [`nero-dub`](video/craft/nero-dub.md) |
+| Produce beats, arrange, learn theory, design synth patches, or build a sonic brand | [`nero-beat`](sound/music/nero-beat.md), [`nero-orchestra`](sound/music/nero-orchestra.md), [`nero-theory`](sound/music/nero-theory.md), [`nero-synth`](sound/production/nero-synth.md), [`nero-sonic`](sound/production/nero-sonic.md) |
 
 ---
 
@@ -127,21 +132,31 @@ nero/
 │   │   ├── nero-story.md
 │   │   ├── nero-fanfic.md
 │   │   ├── nero-erotica.md
-│   │   └── nero-poetry.md
+│   │   ├── nero-poetry.md
+│   │   ├── nero-plot.md
+│   │   └── nero-humor.md
 │   ├── professional/
 │   │   ├── nero-copy.md
 │   │   ├── nero-professional.md
-│   │   └── nero-article.md
+│   │   ├── nero-article.md
+│   │   ├── nero-book.md
+│   │   └── nero-academic.md
 │   └── editing/
-│       └── nero-edit.md
+│       ├── nero-edit.md
+│       └── nero-translate.md
 ├── image/
 │   ├── art/
 │   │   ├── nero-art.md
 │   │   ├── nero-concept.md
 │   │   ├── nero-photo.md
-│   │   └── nero-comic.md
+│   │   ├── nero-comic.md
+│   │   ├── nero-pixel.md
+│   │   ├── nero-modeling.md
+│   │   └── nero-avatar.md
 │   ├── design/
-│   │   └── nero-design.md
+│   │   ├── nero-design.md
+│   │   ├── nero-uiux.md
+│   │   └── nero-infographic.md
 │   └── tools/
 │       ├── nero-prompt.md
 │       ├── nero-comfy.md
@@ -150,24 +165,34 @@ nero/
 │   ├── scripts/
 │   │   ├── nero-screenplay.md
 │   │   ├── nero-series.md
-│   │   └── nero-ad.md
+│   │   ├── nero-ad.md
+│   │   ├── nero-docu.md
+│   │   ├── nero-musicvideo.md
+│   │   └── nero-shorts.md
 │   ├── craft/
 │   │   ├── nero-storyboard.md
 │   │   ├── nero-cinematography.md
 │   │   ├── nero-animation.md
-│   │   └── nero-cut.md
+│   │   ├── nero-cut.md
+│   │   ├── nero-vfx.md
+│   │   └── nero-dub.md
 │   └── tools/
 │       └── nero-vidprompt.md
 ├── sound/
 │   ├── music/
 │   │   ├── nero-music.md
 │   │   ├── nero-lyrics.md
-│   │   └── nero-score.md
+│   │   ├── nero-score.md
+│   │   ├── nero-beat.md
+│   │   ├── nero-orchestra.md
+│   │   └── nero-theory.md
 │   └── production/
 │       ├── nero-sfx.md
 │       ├── nero-mix.md
 │       ├── nero-voice.md
-│       └── nero-podcast.md
+│       ├── nero-podcast.md
+│       ├── nero-synth.md
+│       └── nero-sonic.md
 └── games/
     ├── design/
     │   ├── nero-gdd.md
@@ -266,7 +291,7 @@ _Characters, worlds, adventures, items, and the tools that connect them to rolep
 
 ### Writing
 
-_Creative and professional writing: original fiction, fan fiction, erotica, poetry, copy, business and technical documents, articles, and editing._
+_Creative and professional writing: original fiction, plotting, humor, fan fiction, erotica, poetry, copy, business and technical documents, books, academic writing, articles, editing, and translation._
 
 #### `writing/fiction/`
 
@@ -276,6 +301,8 @@ _Creative and professional writing: original fiction, fan fiction, erotica, poet
 | [`nero-fanfic`](writing/fiction/nero-fanfic.md) | **New in 2.0.** Fan fiction with a canon audit, characterization checks, AU and trope types, an archive package (rating, tags, warnings), and a firm originality rule. Sexual content only with characters who are adults in canon. |
 | [`nero-erotica`](writing/fiction/nero-erotica.md) | **New in 2.0.** Erotic fiction for adults: heat levels, desire logic, consent as craft, sensory design, dynamics and tropes, content notes, and tags, within firm hard limits. |
 | [`nero-poetry`](writing/fiction/nero-poetry.md) | **New in 2.0.** Poems and verse in any language: fixed forms and free verse, image and sound, line breaks, sequences, translation, and spoken word. |
+| [`nero-plot`](writing/fiction/nero-plot.md) | **New in 2.2.** Plot architecture: structures, beat sheets, twists and reveals, mystery truth tables, subplots, setup and payoff maps, and plot-hole stress tests. |
+| [`nero-humor`](writing/fiction/nero-humor.md) | **New in 2.2.** Comedy writing: jokes, sketches, stand-up, satire and parody, comic dialogue, punch-up passes, and clear lines about what not to demean. |
 
 #### `writing/professional/`
 
@@ -284,16 +311,19 @@ _Creative and professional writing: original fiction, fan fiction, erotica, poet
 | [`nero-copy`](writing/professional/nero-copy.md) | **New in 2.0.** Marketing and advertising copy: briefs, frameworks, channel deliverables, brand voice, A/B variants, transcreation, and honesty and compliance rules. |
 | [`nero-professional`](writing/professional/nero-professional.md) | **New in 2.0.** Business, technical, and academic writing: emails, reports, proposals, documentation, CVs, grants, and speeches, with placeholders instead of invented facts. |
 | [`nero-article`](writing/professional/nero-article.md) | **New in 2.0.** Articles, essays, newsletters, features, reviews, and memoir: thesis, structure, voice, headline options, and a fact-check list. |
+| [`nero-book`](writing/professional/nero-book.md) | **New in 2.2.** Non-fiction books: positioning, structure, chapter templates, memoir, ebooks, and book proposals, with honesty rules about facts and the author's life. |
+| [`nero-academic`](writing/professional/nero-academic.md) | **New in 2.2.** Academic writing: research questions, argument maps, IMRaD and thesis structure, literature reviews, grant outlines, and reviewer responses, with strict integrity rules (no invented data or citations). |
 
 #### `writing/editing/`
 
 | Agent | What it does |
 |---|---|
 | [`nero-edit`](writing/editing/nero-edit.md) | **New in 2.0.** The editor: developmental, line, copy, and proofreading passes, severity-ranked critique, voice-preserving rewrites, and continuity checks, for any kind of writing. |
+| [`nero-translate`](writing/editing/nero-translate.md) | **New in 2.2.** Translation and adaptation of creative and professional text: voice and register, localization versus transcreation, glossaries, translator notes, and quality checks. |
 
 ### Image
 
-_Artistic and design imagery: art direction, concept design, photography, comics, graphic design, prompts for any model, ComfyUI workflows, and retouching._
+_Artistic and design imagery: art direction, concept design, photography, comics, pixel art, 3D modeling, avatars, graphic design, UI/UX, infographics, prompts for any model, ComfyUI workflows, and retouching._
 
 #### `image/art/`
 
@@ -303,12 +333,17 @@ _Artistic and design imagery: art direction, concept design, photography, comics
 | [`nero-concept`](image/art/nero-concept.md) | **New in 2.0.** Concept design for characters, creatures, props, vehicles, and environments: silhouettes, shape language, color, variations, and design sheets. |
 | [`nero-photo`](image/art/nero-photo.md) | **New in 2.0.** Photography direction and photoreal prompts: lighting, lenses, composition, shot lists, post-processing, and consent and synthetic-media rules. |
 | [`nero-comic`](image/art/nero-comic.md) | **New in 2.0.** Comics, manga, and webtoons: page and panel scripts, pacing, lettering, character locks, and prompts for consistent panels. |
+| [`nero-pixel`](image/art/nero-pixel.md) | **New in 2.2.** Pixel art: canvas and palette specs, color ramps, silhouettes, animation frame plans, tilesets, and cleanup of generated art. |
+| [`nero-modeling`](image/art/nero-modeling.md) | **New in 2.2.** 3D art direction and production: blockout, topology, UVs, PBR texturing, rigging basics, lighting, rendering, engine export, and 3D printing notes. |
+| [`nero-avatar`](image/art/nero-avatar.md) | **New in 2.2.** Avatars and identity art: PFPs, VTuber model layer plans, mascots, emote and sticker sets, brand kits, and commissioning briefs, with strict no-impersonation rules. |
 
 #### `image/design/`
 
 | Agent | What it does |
 |---|---|
 | [`nero-design`](image/design/nero-design.md) | **New in 2.0.** Graphic and brand design: logos, identity systems, posters, packaging, layouts, typography, color with contrast checks, and production specs. |
+| [`nero-uiux`](image/design/nero-uiux.md) | **New in 2.2.** App and web UI/UX: research planning, flows, wireframes, design systems and tokens, accessibility, states, microcopy, and ethical design (no dark patterns). |
+| [`nero-infographic`](image/design/nero-infographic.md) | **New in 2.2.** Infographics and data visualization: chart choice, layout, color and type, annotation, and honest, accessible data presentation. |
 
 #### `image/tools/`
 
@@ -320,7 +355,7 @@ _Artistic and design imagery: art direction, concept design, photography, comics
 
 ### Video
 
-_Moving images: screenplays, series, advertising, storyboards, cinematography, animation, editing, and AI video generation._
+_Moving images: screenplays, series, documentaries, music videos, short-form video, advertising, storyboards, cinematography, animation, VFX, editing, dubbing, and AI video generation._
 
 #### `video/scripts/`
 
@@ -329,6 +364,9 @@ _Moving images: screenplays, series, advertising, storyboards, cinematography, a
 | [`nero-screenplay`](video/scripts/nero-screenplay.md) | **New in 2.0.** Scripts for film, TV, shorts, and animation: logline, treatment, beat sheet, scene list, and formatted pages, with feasibility notes. |
 | [`nero-series`](video/scripts/nero-series.md) | **New in 2.0.** Series bibles: the engine, characters and arcs, seasons, episode guides, pilot design, and long-form planning. |
 | [`nero-ad`](video/scripts/nero-ad.md) | **New in 2.0.** Advertising and promotional video: insight, big idea, hook-first scripts, shot plans, cutdowns, testing, and compliance rules. |
+| [`nero-docu`](video/scripts/nero-docu.md) | **New in 2.2.** Documentary and non-fiction video: angle, research and access, structure, interview plans, narration, and ethics (consent, labeled recreations, no fabrication). |
+| [`nero-musicvideo`](video/scripts/nero-musicvideo.md) | **New in 2.2.** Music videos: song maps, concepts, treatments, beat-synced shot plans, lyric videos, visualizers, and versions for each platform. |
+| [`nero-shorts`](video/scripts/nero-shorts.md) | **New in 2.2.** Short-form and creator video: hooks, scripts, formats, shot plans, captions, posting plans, and YouTube long-form packaging, with honesty and disclosure rules. |
 
 #### `video/craft/`
 
@@ -338,6 +376,8 @@ _Moving images: screenplays, series, advertising, storyboards, cinematography, a
 | [`nero-cinematography`](video/craft/nero-cinematography.md) | **New in 2.0.** The look of moving images: camera, lenses, lighting, color script, movement, and shot design for real shoots, animation, and AI video. |
 | [`nero-animation`](video/craft/nero-animation.md) | **New in 2.0.** Animation planning for 2D, 3D, stop motion, motion graphics, games, and AI-assisted work: style bible, acting, timing, shot breakdown, and pipeline. |
 | [`nero-cut`](video/craft/nero-cut.md) | **New in 2.0.** Video editing and post planning: pacing, edit decision lists, transitions, sound and color plans, captions and SRT, trailers, and deliverables. |
+| [`nero-vfx`](video/craft/nero-vfx.md) | **New in 2.2.** Visual effects and motion graphics: shot breakdowns, keying, tracking, compositing, CG integration, on-set requirements, and rules against deepfakes and fake evidence. |
+| [`nero-dub`](video/craft/nero-dub.md) | **New in 2.2.** Subtitles, captions, dubbing scripts with lip-sync notes, audio description, SRT and delivery specs, and synthetic-voice consent rules. |
 
 #### `video/tools/`
 
@@ -347,7 +387,7 @@ _Moving images: screenplays, series, advertising, storyboards, cinematography, a
 
 ### Sound
 
-_Audio: music, lyrics, scoring, sound design, mixing and mastering, voice direction, and podcasts and audio drama._
+_Audio: music, beats, orchestration, music theory, lyrics, scoring, sound design, synthesis, audio branding, mixing and mastering, voice direction, and podcasts and audio drama._
 
 #### `sound/music/`
 
@@ -356,6 +396,9 @@ _Audio: music, lyrics, scoring, sound design, mixing and mastering, voice direct
 | [`nero-music`](sound/music/nero-music.md) | **New in 2.0.** Music composition and production briefs: structure, harmony, melody guidance, arrangement, production plans, and prompts for AI music generators. |
 | [`nero-lyrics`](sound/music/nero-lyrics.md) | **New in 2.0.** Songwriting and lyrics: hooks, structure, rhyme and meter, prosody and singability, rap flow, and multilingual writing. |
 | [`nero-score`](sound/music/nero-score.md) | **New in 2.0.** Scoring for film, games, visual novels, and play: spotting, themes and leitmotifs, palettes, cue sheets, and adaptive music design. |
+| [`nero-beat`](sound/music/nero-beat.md) | **New in 2.2.** Beatmaking and electronic production: tempo and groove, drum grids, bass, hooks, arrangement maps, sampling and clearance, and AI music prompts. |
+| [`nero-orchestra`](sound/music/nero-orchestra.md) | **New in 2.2.** Arrangement, orchestration, and notation: ranges and techniques, voicing and balance, ABC and LilyPond text notation, mockups, and rehearsal plans. |
+| [`nero-theory`](sound/music/nero-theory.md) | **New in 2.2.** Music theory and ear training: scales, harmony, form, analysis, practice plans, and exercises with answers, across traditions. |
 
 #### `sound/production/`
 
@@ -365,6 +408,8 @@ _Audio: music, lyrics, scoring, sound design, mixing and mastering, voice direct
 | [`nero-mix`](sound/production/nero-mix.md) | **New in 2.0.** Mixing, mastering, and audio post: diagnosis by symptom, signal chains, dialogue cleanup, loudness, and delivery. |
 | [`nero-voice`](sound/production/nero-voice.md) | **New in 2.0.** Voice and performance direction: voice profiles, casting briefs, narration, TTS and voice design, and pronunciation, with strict no-cloning rules. |
 | [`nero-podcast`](sound/production/nero-podcast.md) | **New in 2.0.** Podcasts, audio drama, radio, and audiobooks: show bibles, episode structures, scripts with sound cues, interviews, and show notes. |
+| [`nero-synth`](sound/production/nero-synth.md) | **New in 2.2.** Synthesis and patch design: subtractive, FM, wavetable, granular, and sampling recipes with modulation and effects, portable across synths. |
+| [`nero-sonic`](sound/production/nero-sonic.md) | **New in 2.2.** Audio branding: sonic strategy, sonic logos, jingles, UI and product sounds, voice identity, and sound guidelines, with originality and rights rules. |
 
 ### Games
 
@@ -614,6 +659,11 @@ flowchart LR
     CP[nero-copy] --> ED
     PF[nero-professional] --> ED
     AT[nero-article] --> ED
+    PL[nero-plot] --> ST
+    HU[nero-humor] --> ED
+    BK[nero-book] --> ED
+    AC[nero-academic] --> ED
+    ED --> TR[nero-translate]
 ```
 
 ### Image
@@ -629,6 +679,11 @@ flowchart LR
     DS[nero-design] --> RT[nero-retouch]
     PM --> CF[nero-comfy]
     CF --> RT
+    CN --> PX[nero-pixel]
+    CN --> MD[nero-modeling]
+    CN --> AV[nero-avatar]
+    DS --> UX[nero-uiux]
+    DS --> IG[nero-infographic]
 ```
 
 ### Video
@@ -644,6 +699,12 @@ flowchart LR
     CI --> CU[nero-cut]
     AN --> CU
     VP --> CU
+    DC[nero-docu] --> SB
+    MV[nero-musicvideo] --> SB
+    SH[nero-shorts] --> SB
+    SB --> VF[nero-vfx]
+    VF --> CU
+    CU --> DB[nero-dub]
 ```
 
 ### Sound
@@ -656,6 +717,11 @@ flowchart LR
     SF[nero-sfx] --> MX
     VO[nero-voice] --> MX
     PD[nero-podcast] --> VO
+    BT[nero-beat] --> MU
+    OR[nero-orchestra] --> MU
+    TH[nero-theory] --> MU
+    SY[nero-synth] --> SF
+    SN[nero-sonic] --> MU
 ```
 
 ### Games
@@ -756,7 +822,7 @@ When editing an existing prompt or creating a new one, keep the conventions:
 - Keep adult content in **optional, removable modules**.
 - If you create a new agent, add it to the table in *The NERO suite* inside the `Core Directives` of **every** agent, to both READMEs, and to the changelog, and set its `Version` to the suite version.
 
-The `Core Directives` block is **identical** in all 81 files on purpose: each prompt has to work on its own, without depending on the others. So any change to it must be replicated everywhere. To check that they are still identical, the command below must print **a single line** (a count of `81` and one hash):
+The `Core Directives` block is **identical** in all 101 files on purpose: each prompt has to work on its own, without depending on the others. So any change to it must be replicated everywhere. To check that they are still identical, the command below must print **a single line** (a count of `101` and one hash):
 
 ```bash
 for f in */*/nero-*.md; do sed -n '/^## 2\. Core Directives/,/^## 3\./p' "$f" | sed '$d' | md5sum; done | sort | uniq -c
@@ -770,6 +836,7 @@ The `Version` in each prompt's header is the **suite version**. Every change tha
 
 | Version | Highlights |
 |---|---|
+| **2.2** | 20 new agents, five per domain: writing (`nero-plot`, `nero-humor`, `nero-book`, `nero-academic`, `nero-translate`), image (`nero-pixel`, `nero-modeling`, `nero-avatar`, `nero-uiux`, `nero-infographic`), video (`nero-docu`, `nero-musicvideo`, `nero-shorts`, `nero-vfx`, `nero-dub`), and sound (`nero-beat`, `nero-orchestra`, `nero-theory`, `nero-synth`, `nero-sonic`). 101 agents in total. |
 | **2.1** | New domain **games** with 22 new agents, from design to release and for the major engines (RPG Maker all versions, Godot, Unity, Unreal, Construct, web, GameMaker, and any other); `nero-renpy` moved to `games/engines/`. 81 agents in total. |
 | **2.0** | **Major release.** NERO expands from roleplay to five domains (roleplay, writing, image, video, sound). Folders reorganized into `domain/category/`; 30 new agents; 59 in total; `nero-comfy` moved to `image/`; Core Directives extend the real-person limit to any medium and add a no-deception limit. |
 | **1.5** | Five new tool agents in `tools/`: `nero-st`, `nero-card`, `nero-comfy`, `nero-context`, and `nero-renpy`. 29 agents in total. |
