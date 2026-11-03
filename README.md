@@ -2,7 +2,7 @@
 
 > A set of **AI agent system prompts** for developing **characters**, **worlds**, and **adventures** for roleplay with generative AI.
 
-**Version 1.1** · [MIT License](LICENSE) · [Changelog](CHANGELOG.md) · [Português (Brasil)](README.pt-BR.md)
+**Version 1.2** · [MIT License](LICENSE) · [Changelog](CHANGELOG.md) · [Português (Brasil)](README.pt-BR.md)
 
 ---
 
@@ -85,7 +85,7 @@ nero/
 |---|---|
 | [`nero-character`](characters/nero-character.md) | Creates **one** deep, playable character: appearance, psychology, voice, backstory, relationships, behavior rules for the AI, an optional intimacy profile, first message, and a visual prompt. Works for the main character, NPCs, or the player's persona. |
 | [`nero-multi-character`](characters/nero-multi-character.md) | Creates **casts**: groups, families, crews, factions. Designs the group as a system, the relationship web (directed, with secrets), and the **Multi-Character Roleplay Card** that teaches an AI to voice several characters in one scene without blending them. |
-| [`nero-jps`](characters/nero-jps.md) | **New in 1.1.** Turns an **image + a prompt** into a ready-to-paste **character card** for **JanitorAI, Front Porch AI, SillyTavern, and derivatives**, in five sections (Description, Personality, Scenario, First Message, Example Dialogue) and 2,000 to 3,000 tokens. See [below](#jps-platform-ready-character-cards). |
+| [`nero-jps`](characters/nero-jps.md) | **New in 1.1, extended in 1.2.** Turns **any source** (image, audio, video, document, an existing card) **or plain text alone**, plus a prompt, into a ready-to-paste **character card** for **JanitorAI, Front Porch AI, SillyTavern, and derivatives**, in five sections (Description, Personality, Scenario, First Message, Example Dialogue) and 2,000 to 3,000 tokens. See [below](#jps-platform-ready-character-cards). |
 
 ### `worldbuilding/`
 
@@ -117,7 +117,19 @@ nero/
 
 ## JPS: platform-ready character cards
 
-**JPS** (`nero-jps`) is the agent for people who want a character card they can paste straight into a roleplay platform. It is built from a single-purpose workflow: **you send an image and a prompt, and it answers with the card, and nothing else.**
+**JPS** (`nero-jps`) is the agent for people who want a character card they can paste straight into a roleplay platform. It is built from a single-purpose workflow: **you send a prompt (with or without media), and it answers with the card, and nothing else.**
+
+### Inputs: any source, or text only
+
+Since 1.2, an image is no longer required. JPS is multimodal like the rest of the suite and works from any combination of:
+
+| Source | What JPS does with it |
+|---|---|
+| **Images** (one or several) | Reads the look in detail and reconciles several images into one consistent character. |
+| **Audio** | Turns voice, pace, accent, and mood into speech rules. It never imitates or identifies a real person's voice. |
+| **Video** | Takes the look, mannerisms, and setting. |
+| **Documents and existing cards** | Converts, rewrites, or adapts lore, profiles, cards, and lorebooks to the five-section format, keeping their facts. |
+| **Text only** | Builds the appearance from your written description, keeps every detail you gave, and fills the gaps with specific, consistent detail. It never asks you for an image. |
 
 ### Supported platforms
 
@@ -159,17 +171,26 @@ The total is **2,000 to 3,000 tokens**.
 | Content mode | `SFW`, `NSFW`, `Auto` | `Auto` |
 | Output language | Any | The language of your prompt (Brazilian Portuguese if it cannot be determined) |
 | Narration | Person, tense, and action style | Third person, present tense, plain prose with "quoted" speech |
-| Export | `JSON` / `V2` | Off |
+| Export and add-ons | `JSON` / `V2`, visual prompt, voice direction, ambience, alternate greetings | Off |
+
+### Optional add-ons
+
+By default the output is the card and nothing else. Ask for any of these and they follow the unchanged card, each under its own heading: `### Visual Prompt` (for an image generator), `### Voice Direction` (TTS and voice casting), `### Ambience` (music and sound cues), and `### Alternate Greetings`. JPS can also generate the image or audio itself on platforms that support it.
 
 ### Example
 
 > *Attach an illustration.* "Platform: Janitor. Mode: NSFW. Language: English. A disgraced noble turned smuggler, teasing and sharp-tongued, secretly lonely. She has just caught `{{user}}` sneaking aboard her ship."
 
-### Image rules
+Text only, no attachment:
 
-- The character is always an **explicit adult**. If the image depicts a minor or a childlike figure, JPS creates no sexual or romantic content.
+> "SillyTavern, NSFW, English. A tall, freckled red-haired alchemist in her thirties with ink-stained fingers and a dry sense of humor, who runs a failing apothecary and owes {{user}} a favor."
+
+### Source rules
+
+- The character is always an **explicit adult**. If an image or a text description depicts a minor or a childlike figure, JPS creates no sexual or romantic content.
 - **Illustrations, renders, and AI-generated art of non-real people** get the full range of the active content mode.
-- A **photograph of a real person** yields a **SFW, non-sexual** character only. JPS never identifies a real person from their face.
+- A **photograph, video, voice recording, document, or text prompt about a real person** yields a **SFW, non-sexual** character only. JPS never identifies a real person from their face or voice.
+- In text-only mode, original and fictional characters get the full range of the active content mode.
 
 ---
 
@@ -209,7 +230,7 @@ flowchart LR
     B --> R[nero-rooms]
     W --> C[nero-character]
     C --> M[nero-multi-character]
-    C -. from an image .-> J[nero-jps]
+    C -. from any source or text .-> J[nero-jps]
     E --> I[nero-items]
     I --> Q[nero-equipments]
     I --> K[nero-weapons]
@@ -296,6 +317,7 @@ The `Version` in each prompt's header is the **suite version**. Every change tha
 
 | Version | Highlights |
 |---|---|
+| **1.2** | `nero-jps` accepts plain text only (no image needed) and is fully multimodal on input (images, audio, video, documents, existing cards) with optional multimodal add-ons. |
 | **1.1** | New agent `nero-jps` (character cards for JanitorAI, Front Porch AI, SillyTavern, and derivatives); README translated to English; changelog added. |
 | **1.0** | First release: 13 agents in four categories. |
 
