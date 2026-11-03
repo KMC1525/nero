@@ -2,6 +2,25 @@
 
 All notable changes to NERO are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the version is the **suite version** shown in each prompt's header.
 
+## [1.4] - 2026-11-03
+
+### Added
+
+Five new agents, each following the suite pattern (Core Directives, Quick/Standard/Deep depths, Compact Block, multimodal input and output, SFW/NSFW/Auto modes, removable adult modules, and hand-offs). The suite grows from 19 to **24 agents**.
+
+- **`nero-history`** (`worldbuilding/nero-history.md`): timelines, eras, and shaping events written as causal chains (causes, winners and losers, immediate and long-term consequences), with a Mermaid causal-chain diagram. Separates the official version, the folk version, and the truth; covers legacies, generational memory, lost knowledge, counterfactuals, in-world primary sources, and explicit links to characters, factions, and places. Optional dynasties-and-intimate-history module.
+- **`nero-romance`** (`characters/nero-romance.md`): relationships between characters. Chemistry, perspectives and tells, a power map (social, material, emotional, informational, physical), a tension engine, arc beats with triggers, a 0 to 5 heat track, scene ideas, and roleplay rules for the AI. Modules for slow-burn, enemies-to-lovers, forbidden, arranged, tense, toxic, redemptive, found-family, and open relationships. The optional **intimacy module works at the pair level** (compatibility, negotiation, escalation ladder, aftermath) and defers each person's individual profile to `nero-character`.
+- **`nero-villain`** (`characters/nero-villain.md`): antagonists with depth. Motivation (including what the villain is right about), methods and style, resources and weaknesses, a personal relationship with the protagonist, a **proactive phased plan** with progress clocks, a Villain Moves table, reaction rules, and lieutenants, plus presentation, arc end states (redemption, fall, tragic, ambiguous, or none), rules for playing the villain, and an optional seductive/dark-romance module.
+- **`nero-scenario`** (`adventure/nero-scenario.md`): opening scenes, first messages, situational hooks, and cold opens. Defines an anatomy (anchor, situation, pressure, presence, open door), an opening-type table, length and narration settings, a Situation Sheet, a Scenario line for cards, and an optional intimate-opening module. Distinguished from `nero-narrative` (broad prose) and `nero-jps` (platform cards).
+- **`nero-sandbox`** (`adventure/nero-sandbox.md`): open-world and hexcrawl packs. Premise, hex map and hex key (aligned to uploaded maps), hub and danger gradient, points of interest, rumor tables, travel and exploration rules, random encounter/discovery/event tables, resource and threat progress clocks, faction turns, rewards, and an **Exploration Directive** for AI-run play. Optional roadside-intimacy module.
+
+### Changed
+
+- The *NERO suite* table inside the Core Directives of **every agent** now lists the five new agents. Core Directives remain identical in all 24 files.
+- The `Version` field in every prompt header moved from `1.3` to `1.4`.
+- Hand-offs: each new agent hands off to `nero-worldbuilding`, `nero-character`, `nero-multi-character`, `nero-adventure`, `nero-narrative`, `nero-combat`, and `nero-factions`, among others. The existing agents `nero-worldbuilding`, `nero-character`, `nero-multi-character`, `nero-adventure`, `nero-narrative`, `nero-combat`, `nero-factions`, `nero-places`, `nero-cultures`, and `nero-creatures` now point to the relevant new agents.
+- `README.md` and `README.pt-BR.md` updated: agent count (19 to 24), repository tree, agent tables, workflow diagram, and version table.
+
 ## [1.3] - 2026-11-03
 
 ### Added
@@ -75,6 +94,7 @@ Five new agents, each following the suite pattern (Core Directives, Quick/Standa
 - A shared Core Directives block kept identical across agents, with three hard limits (no sexual content involving minors, none about real people, no real-world operational instructions).
 - Project `README.md` in Portuguese.
 
+[1.4]: https://github.com/KMC1525/nero/releases/tag/v1.4
 [1.3]: https://github.com/KMC1525/nero/releases/tag/v1.3
 [1.2]: https://github.com/KMC1525/nero/releases/tag/v1.2
 [1.1]: https://github.com/KMC1525/nero/releases/tag/v1.1

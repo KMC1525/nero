@@ -2,7 +2,7 @@
 
 > A set of **AI agent system prompts** for developing **characters**, **worlds**, and **adventures** for roleplay with generative AI.
 
-**Version 1.3** · [MIT License](LICENSE) · [Changelog](CHANGELOG.md) · [Português (Brasil)](README.pt-BR.md)
+**Version 1.4** · [MIT License](LICENSE) · [Changelog](CHANGELOG.md) · [Português (Brasil)](README.pt-BR.md)
 
 ---
 
@@ -25,7 +25,7 @@
 
 ## What is NERO
 
-NERO is a collection of **19 specialized system prompts**, written in Markdown. Each file is an **independent agent**: you paste it as the system prompt of an AI model, and it acts as a specialist in creating one kind of roleplay material: a character, a cast, a world, a city, a room, an economy, an adventure, a fight, or a legendary sword.
+NERO is a collection of **24 specialized system prompts**, written in Markdown. Each file is an **independent agent**: you paste it as the system prompt of an AI model, and it acts as a specialist in creating one kind of roleplay material: a character, a cast, a world, a city, a room, an economy, an adventure, a fight, or a legendary sword.
 
 It is not an application or a library. It is **content**: prompts ready to use on any platform or model that accepts a system prompt (chat apps, roleplay frontends, APIs, custom GPTs, and projects).
 
@@ -58,7 +58,9 @@ nero/
 ├── characters/
 │   ├── nero-character.md
 │   ├── nero-multi-character.md
-│   └── nero-jps.md
+│   ├── nero-jps.md
+│   ├── nero-romance.md
+│   └── nero-villain.md
 ├── worldbuilding/
 │   ├── nero-worldbuilding.md
 │   ├── nero-places.md
@@ -67,13 +69,16 @@ nero/
 │   ├── nero-economy.md
 │   ├── nero-factions.md
 │   ├── nero-magic.md
-│   └── nero-cultures.md
+│   ├── nero-cultures.md
+│   └── nero-history.md
 ├── creatures/
 │   └── nero-creatures.md
 ├── adventure/
 │   ├── nero-adventure.md
 │   ├── nero-combat.md
-│   └── nero-narrative.md
+│   ├── nero-narrative.md
+│   ├── nero-scenario.md
+│   └── nero-sandbox.md
 ├── items/
 │   ├── nero-items.md
 │   ├── nero-equipments.md
@@ -93,6 +98,8 @@ nero/
 | [`nero-character`](characters/nero-character.md) | Creates **one** deep, playable character: appearance, psychology, voice, backstory, relationships, behavior rules for the AI, an optional intimacy profile, first message, and a visual prompt. Works for the main character, NPCs, or the player's persona. |
 | [`nero-multi-character`](characters/nero-multi-character.md) | Creates **casts**: groups, families, crews, factions. Designs the group as a system, the relationship web (directed, with secrets), and the **Multi-Character Roleplay Card** that teaches an AI to voice several characters in one scene without blending them. |
 | [`nero-jps`](characters/nero-jps.md) | **New in 1.1, extended in 1.2.** Turns **any source** (image, audio, video, document, an existing card) **or plain text alone**, plus a prompt, into a ready-to-paste **character card** for **JanitorAI, Front Porch AI, SillyTavern, and derivatives**, in five sections (Description, Personality, Scenario, First Message, Example Dialogue) and 2,000 to 3,000 tokens. See [below](#jps-platform-ready-character-cards). |
+| [`nero-romance`](characters/nero-romance.md) | **New in 1.4.** The bond between characters: chemistry, power map, tension engine, arc beats, a 0 to 5 heat track, and modules for slow-burn, enemies-to-lovers, forbidden, toxic, redemptive, and found-family bonds. Optional **pair-level intimacy module** (compatibility, negotiation, escalation, aftermath) that does not repeat `nero-character`. |
+| [`nero-villain`](characters/nero-villain.md) | **New in 1.4.** Antagonists with depth: motivation and what they are right about, methods, resources, a personal relationship with the protagonist, a **proactive phased plan** with clocks and a move table, and redemption, fall, or no-redemption arcs. |
 
 ### `worldbuilding/`
 
@@ -106,6 +113,7 @@ nero/
 | [`nero-factions`](worldbuilding/nero-factions.md) | **New in 1.3.** Guilds, noble houses, cults, corporations, gangs, orders, and other organizations: hierarchy and real power, resources, goals and methods, propaganda, recruitment, internal secrets, and a **Mermaid relations diagram**. |
 | [`nero-magic`](worldbuilding/nero-magic.md) | **New in 1.3.** Power systems: magic, superpowers, mystic arts, divine gifts, psionics, and arcane technology. Source, laws, costs, limits, schools and traditions, progression, risks, and the culture built around power. |
 | [`nero-cultures`](worldbuilding/nero-cultures.md) | **New in 1.3.** Peoples and societies from the inside: values, customs, taboos, festivals, family, language, aesthetics, the sacred, and the body, with a "Playing a Member" guide for narrators. |
+| [`nero-history`](worldbuilding/nero-history.md) | **New in 1.4.** Timelines and eras, shaping events with causes and long-term consequences, **official history versus truth**, legacies, generational memory, lost knowledge, and links to characters, factions, and places, with a Mermaid causal-chain diagram. |
 
 ### `creatures/`
 
@@ -120,6 +128,8 @@ nero/
 | [`nero-adventure`](adventure/nero-adventure.md) | Designs adventures (one-shots, arcs, campaigns, sandboxes, mysteries, romances): hook, structure, clues (Three-Clue Rule), progress clocks, endings, rewards, and a **GM Directive** so an AI can run the game. |
 | [`nero-combat`](adventure/nero-combat.md) | Combat encounters with an objective, enemies with tactics, terrain, phases, and consequences. Works in *Design Mode* and *Run Mode* (adjudicates and narrates a fight live). Includes an optional defeat/capture module. |
 | [`nero-narrative`](adventure/nero-narrative.md) | The storyteller: scenes, openings, roleplay narration, dialogue, structure, editing, translation, continuity, and the *Narrator Voice Profile*. Includes an anti-cliché list. |
+| [`nero-scenario`](adventure/nero-scenario.md) | **New in 1.4.** Immersive, ready-to-paste **openings**: first messages, cold opens, situational hooks, and Scenario lines, built from anchor, situation, pressure, presence, and an open door that never decides for the user. |
+| [`nero-sandbox`](adventure/nero-sandbox.md) | **New in 1.4.** Open-world and **hexcrawl** packs: hex maps and keys, points of interest, rumor tables, travel rules, random encounter and event tables, exploration clocks, faction turns, and an Exploration Directive so an AI can run the world. |
 
 ### `items/`
 
@@ -271,6 +281,20 @@ flowchart LR
     P --> CR[nero-creatures]
     CR --> X
     CR --> A
+    W --> H[nero-history]
+    H --> F
+    H --> CU
+    H --> P
+    C --> RO[nero-romance]
+    M --> RO
+    C --> VI[nero-villain]
+    F --> VI
+    VI --> A
+    A --> SC[nero-scenario]
+    SC --> N
+    P --> SB[nero-sandbox]
+    F --> SB
+    CR --> SB
     ANY[any NERO output] -. optimize .-> LB[nero-lorebook]
 ```
 
@@ -337,7 +361,7 @@ When editing an existing prompt or creating a new one, keep the conventions:
 - Keep adult content in **optional, removable modules**.
 - If you create a new agent, add it to the table in *The NERO suite* inside the `Core Directives` of **every** agent, and to this README and the changelog.
 
-The `Core Directives` block is **identical** in all 19 files on purpose: each prompt has to work on its own, without depending on the others. So any change to it must be replicated everywhere. To check that they are still identical, the command below must print **a single line** (a count of `19` and one hash):
+The `Core Directives` block is **identical** in all 24 files on purpose: each prompt has to work on its own, without depending on the others. So any change to it must be replicated everywhere. To check that they are still identical, the command below must print **a single line** (a count of `24` and one hash):
 
 ```bash
 for f in */nero-*.md; do sed -n '/^## 2\. Core Directives/,/^## 3\./p' "$f" | sed '$d' | md5sum; done | sort | uniq -c
@@ -351,6 +375,7 @@ The `Version` in each prompt's header is the **suite version**. Every change tha
 
 | Version | Highlights |
 |---|---|
+| **1.4** | Five new agents: `nero-history`, `nero-romance`, `nero-villain`, `nero-scenario`, and `nero-sandbox`. 24 agents in total. |
 | **1.3** | Five new agents: `nero-factions`, `nero-creatures`, `nero-magic`, `nero-cultures` (new `creatures/` folder), and `nero-lorebook` (new `tools/` folder). 19 agents in total. |
 | **1.2** | `nero-jps` accepts plain text only (no image needed) and is fully multimodal on input (images, audio, video, documents, existing cards) with optional multimodal add-ons. |
 | **1.1** | New agent `nero-jps` (character cards for JanitorAI, Front Porch AI, SillyTavern, and derivatives); README translated to English; changelog added. |
