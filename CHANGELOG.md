@@ -2,6 +2,30 @@
 
 All notable changes to NERO are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the version is the **suite version** shown in each prompt's header.
 
+## [1.5] - 2026-11-03
+
+### Added
+
+Five practical, tool-integration agents, all in `tools/`, each following the suite pattern (Core Directives, Quick/Standard/Deep depths, Compact Block, multimodal input and output, SFW/NSFW/Auto modes, removable adult modules, and hand-offs). The suite grows from 24 to **29 agents**.
+
+- **`nero-st`** (`tools/nero-st.md`): SillyTavern and derivatives. World Info / Lorebook engineering (keys, regex keys, secondary-key logic, constant, order, position, depth, probability, recursion switches, sticky/cooldown/delay, inclusion groups, global budget), Regex Scripts (find, replace, placement, depth, display versus prompt, test strings), Quick Replies and STscript starters, Author's Note, Character Card V2/V3 fields, generation presets, instruct and context templates, group chats, and context-management strategy. Marks every option as version-dependent and states that presets carry style and roleplay rules, not safety-evasion instructions.
+- **`nero-card`** (`tools/nero-card.md`): conversion and optimization of character cards across SillyTavern, JanitorAI, Front Porch AI, Agnai, RisuAI, and derivatives. Modes: convert, optimize, merge, audit, upgrade/downgrade (V2 and V3), and split. Includes a cross-platform field map, per-field token budgets in three tiers, platform best practices, V2/V3 JSON, a severity-ranked lint checklist, and a card package with a conversion note.
+- **`nero-comfy`** (`tools/nero-comfy.md`): ComfyUI and Stable Diffusion-family pipelines. Prompt packages by model family, a reusable **Character Lock**, workflow structure as a node chain with a Mermaid diagram (LoRA stack by role and strength, ControlNet, IP-Adapter, regional prompting, upscale, detailer, inpainting), a consistency plan, variation and sprite batches, and optional best-effort workflow JSON. Built-in safety rules for image work (see Safety).
+- **`nero-context`** (`tools/nero-context.md`): context compression and prioritization. Invariants, priority tiers P0 to P3, budgets for 4k, 8k, 16k, and 32k+ windows, compression techniques, density levels, a rolling-summary template, a Loss Report, and a consistency check. Keeps adult material intact and separable.
+- **`nero-renpy`** (`tools/nero-renpy.md`): adaptation to Ren'Py visual novels. Project map and Mermaid route map, character definitions, `default` variables and flags, a script-conversion guide (labels, menus, jump/call/return, transitions, text escapes), requirements tables for endings, an asset manifest that hands art prompts to `nero-comfy`, an age-gated mature-content pattern with SFW fallbacks, and a test list including Ren'Py Lint.
+
+### Changed
+
+- The *NERO suite* table inside the Core Directives of **every agent** now lists the five new agents. Core Directives remain identical in all 29 files.
+- The `Version` field in every prompt header moved from `1.4` to `1.5`.
+- Hand-offs: each new agent hands off to `nero-jps`, `nero-character`, `nero-lorebook`, `nero-narrative`, `nero-scenario`, `nero-romance`, and `nero-worldbuilding`, and to the other new tool agents where relevant. `nero-lorebook`, `nero-jps`, `nero-character`, `nero-scenario`, `nero-romance`, `nero-narrative`, `nero-worldbuilding`, and `nero-multi-character` now point to the relevant new agents.
+- `README.md` and `README.pt-BR.md` updated: agent count (24 to 29), repository tree, agent tables, workflow diagram, and version table.
+
+### Safety
+
+- `nero-comfy` requires every subject of an NSFW or suggestive image prompt to be an explicit adult, adds child-related terms to negative prompts, and refuses suggestive prompts for minors or childlike figures. It does not build prompts, LoRAs, face references, IP-Adapter or face-swap steps to depict a real, identifiable person in sexual or deceptive imagery, and keeps face-reference tools for fictional and original characters.
+- `nero-card` and `nero-context` do not convert or compress sexual content involving minors or childlike figures, convert cards built on a real person's likeness as SFW only, and add explicit adult ages where missing.
+
 ## [1.4] - 2026-11-03
 
 ### Added
@@ -94,6 +118,7 @@ Five new agents, each following the suite pattern (Core Directives, Quick/Standa
 - A shared Core Directives block kept identical across agents, with three hard limits (no sexual content involving minors, none about real people, no real-world operational instructions).
 - Project `README.md` in Portuguese.
 
+[1.5]: https://github.com/KMC1525/nero/releases/tag/v1.5
 [1.4]: https://github.com/KMC1525/nero/releases/tag/v1.4
 [1.3]: https://github.com/KMC1525/nero/releases/tag/v1.3
 [1.2]: https://github.com/KMC1525/nero/releases/tag/v1.2

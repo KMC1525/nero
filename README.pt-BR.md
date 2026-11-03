@@ -2,7 +2,7 @@
 
 > Um conjunto de **system prompts de agentes de IA** para o desenvolvimento de **personagens**, **mundos** e **aventuras** de roleplay com IA generativa.
 
-**Versão 1.4** · [Licença MIT](LICENSE) · [Changelog](CHANGELOG.md) · [English](README.md)
+**Versão 1.5** · [Licença MIT](LICENSE) · [Changelog](CHANGELOG.md) · [English](README.md)
 
 ---
 
@@ -25,7 +25,7 @@
 
 ## O que é o NERO
 
-O NERO é uma coleção de **24 system prompts especializados**, escritos em Markdown. Cada arquivo é um **agente independente**: você o cola como system prompt em um modelo de IA e ele passa a atuar como especialista em criar um tipo de material para roleplay, seja um personagem, um elenco, um mundo, uma cidade, uma sala, uma economia, uma aventura, uma luta ou uma espada lendária.
+O NERO é uma coleção de **29 system prompts especializados**, escritos em Markdown. Cada arquivo é um **agente independente**: você o cola como system prompt em um modelo de IA e ele passa a atuar como especialista em criar um tipo de material para roleplay, seja um personagem, um elenco, um mundo, uma cidade, uma sala, uma economia, uma aventura, uma luta ou uma espada lendária.
 
 Não é um aplicativo nem uma biblioteca. É **conteúdo**: prompts prontos para usar em qualquer plataforma ou modelo que aceite um system prompt (aplicativos de chat, frontends de roleplay, APIs, GPTs e projetos personalizados).
 
@@ -84,7 +84,12 @@ nero/
 │   ├── nero-equipments.md
 │   └── nero-weapons.md
 └── tools/
-    └── nero-lorebook.md
+    ├── nero-lorebook.md
+    ├── nero-st.md
+    ├── nero-card.md
+    ├── nero-comfy.md
+    ├── nero-context.md
+    └── nero-renpy.md
 ```
 
 ---
@@ -144,6 +149,11 @@ nero/
 | Agente | O que faz |
 |---|---|
 | [`nero-lorebook`](tools/nero-lorebook.md) | **Novo na 1.3.** Transforma qualquer material, inclusive a saída dos outros agentes, em entradas de lorebook otimizadas para SillyTavern, Agnai e frontends parecidos: keywords e chaves secundárias, entradas sempre ativas versus acionadas, ordem, notas de recursão, orçamento de tokens, versões **Compact e Full** e exportação JSON opcional. |
+| [`nero-st`](tools/nero-st.md) | **Novo na 1.5.** O engenheiro do SillyTavern: configurações de World Info (keys, regex, depth, probability, order, constant, recursão), Regex Scripts, Quick Replies, Author's Note, campos de Character Card V2/V3, presets de geração e estratégia de gerenciamento de contexto. Complementa o `nero-lorebook`, que escreve o conteúdo das entradas. |
+| [`nero-card`](tools/nero-card.md) | **Novo na 1.5.** Converte e otimiza cartões de personagem entre **SillyTavern, JanitorAI, Front Porch AI, Agnai, RisuAI** e derivados, a partir de qualquer fonte (ficha NERO, texto, imagem, cartão existente). Orçamento de tokens por campo, melhores práticas de cada plataforma, suporte a V2 e V3 e uma passada de lint. |
+| [`nero-comfy`](tools/nero-comfy.md) | **Novo na 1.5.** Pipelines de ComfyUI e Stable Diffusion: pacotes de prompt por família de modelo, um **Character Lock** reutilizável para consistência, estrutura de workflow (LoRAs por função, ControlNet, IP-Adapter, upscale, detailer) e lotes de variações, para SFW e NSFW. Regras de segurança embutidas: só adultos, sem likeness de pessoa real em conteúdo sexual. |
+| [`nero-context`](tools/nero-context.md) | **Novo na 1.5.** Compressão e priorização de contexto: transforma qualquer saída NERO em versões de alta densidade para janelas de **4k, 8k, 16k e 32k+**, com camadas de prioridade, Loss Report, checagem de consistência e template de resumo contínuo. |
+| [`nero-renpy`](tools/nero-renpy.md) | **Novo na 1.5.** Adapta personagens, cenários, relacionamentos e arcos para projetos **Ren'Py**: labels, menus de escolha, flags e variáveis, transições, declarações de CG, mapa de rotas, manifesto de assets e cenas maduras com trava de idade e alternativa SFW. |
 
 ---
 
@@ -296,6 +306,18 @@ flowchart LR
     F --> SB
     CR --> SB
     ANY[qualquer saída NERO] -. otimizar .-> LB[nero-lorebook]
+    J --> CD[nero-card]
+    C --> CD
+    LB --> ST[nero-st]
+    CD --> ST
+    C --> CF[nero-comfy]
+    J --> CF
+    SC --> CF
+    LB --> CT[nero-context]
+    CD --> CT
+    RO --> RP[nero-renpy]
+    SC --> RP
+    CF -.-> RP
 ```
 
 Cada agente conhece os outros e indica o próximo passo quando um pedido foge do seu escopo. Os materiais se ligam por **referências cruzadas** no formato `[[Tipo: Nome]]`, por exemplo `[[Place: Saltmarsh Quay]]`, `[[Character: Mira Voss]]` ou `[[Item: Ashen Lantern]]`.
@@ -361,7 +383,7 @@ Ao editar um prompt existente ou criar um novo, mantenha as convenções:
 - Mantenha o conteúdo adulto em **módulos opcionais e removíveis**.
 - Se criar um agente novo, adicione-o à tabela da seção *The NERO suite* dentro do `Core Directives` de **todos** os agentes, a este README e ao changelog.
 
-O bloco `Core Directives` é **idêntico** nos 24 arquivos de propósito: cada prompt precisa funcionar sozinho, sem depender dos outros. Por isso, qualquer mudança nele deve ser replicada em todos. Para conferir se continuam idênticos, o comando abaixo deve imprimir **uma única linha** (contagem `24` e um só hash):
+O bloco `Core Directives` é **idêntico** nos 29 arquivos de propósito: cada prompt precisa funcionar sozinho, sem depender dos outros. Por isso, qualquer mudança nele deve ser replicada em todos. Para conferir se continuam idênticos, o comando abaixo deve imprimir **uma única linha** (contagem `29` e um só hash):
 
 ```bash
 for f in */nero-*.md; do sed -n '/^## 2\. Core Directives/,/^## 3\./p' "$f" | sed '$d' | md5sum; done | sort | uniq -c
@@ -375,6 +397,7 @@ A `Version` no cabeçalho de cada prompt é a **versão da suíte**. Toda mudan�
 
 | Versão | Destaques |
 |---|---|
+| **1.5** | Cinco novos agentes de ferramentas em `tools/`: `nero-st`, `nero-card`, `nero-comfy`, `nero-context` e `nero-renpy`. 29 agentes no total. |
 | **1.4** | Cinco novos agentes: `nero-history`, `nero-romance`, `nero-villain`, `nero-scenario` e `nero-sandbox`. 24 agentes no total. |
 | **1.3** | Cinco novos agentes: `nero-factions`, `nero-creatures`, `nero-magic`, `nero-cultures` (nova pasta `creatures/`) e `nero-lorebook` (nova pasta `tools/`). 19 agentes no total. |
 | **1.2** | O `nero-jps` aceita somente texto (sem imagem) e é totalmente multimodal na entrada (imagens, áudio, vídeo, documentos, cartões existentes), com extras multimodais opcionais. |
